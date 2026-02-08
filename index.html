@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Ridhima Foundation - Healing Women. Empowering Futures. A CSR initiative dedicated to women's healthcare from adolescence to senior care.">
+    <meta name="keywords"
+        content="women's health, healthcare, foundation, charity, women empowerment, gynecology, fertility, menopause">
+    <title>Ridhima Foundation | Healing Women. Empowering Futures.</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Alpine.js CDN -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Montserrat', serif;
+        }
+    </style>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0F172A',
+                        accent: '#F59E0B',
+                        bglight: '#F8FAFC',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-bglight">
+
+    <!-- Navbar -->
+    <nav x-data="{ mobileMenuOpen: false }" class="bg-white shadow-md fixed top-0 left-0 right-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <img src="NewLogo.png" alt="Ridhima Foundation Logo" class="h-14 w-auto">
+                    <span class="ml-3 text-xl font-bold text-primary hidden sm:block">Ridhima Foundation</span>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-accent transition duration-300">Home</a>
+                    <a href="#about" class="text-gray-700 hover:text-accent transition duration-300">About</a>
+                    <a href="#programs" class="text-gray-700 hover:text-accent transition duration-300">Programs</a>
+                    <a href="#impact" class="text-gray-700 hover:text-accent transition duration-300">Impact</a>
+                    <a href="#transparency"
+                        class="text-gray-700 hover:text-accent transition duration-300">Transparency</a>
+                    <a href="#contact" class="text-gray-700 hover:text-accent transition duration-300">Contact</a>
+                    <a href="#donate"
+                        class="bg-accent hover:bg-yellow-600 text-white px-6 py-2 rounded-full font-semibold transition duration-300 shadow-lg hover:shadow-xl">
+                        Donate Now
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden text-gray-700 focus:outline-none">
+                    <i class="fas fa-bars text-2xl" x-show="!mobileMenuOpen"></i>
+                    <i class="fas fa-times text-2xl" x-show="mobileMenuOpen"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div x-show="mobileMenuOpen" x-transition:enter="transition ease-out duration-200"
+            x-transition:enter-start="opacity-0 transform -translate-y-2"
+            x-transition:enter-end="opacity-100 transform translate-y-0"
+            x-transition:leave="transition ease-in duration-150"
+            x-transition:leave-start="opacity-100 transform translate-y-0"
+            x-transition:leave-end="opacity-0 transform -translate-y-2"
+            class="md:hidden bg-white border-t border-gray-200">
+            <div class="px-4 pt-2 pb-4 space-y-2">
+                <a href="#home" @click="mobileMenuOpen = false"
+                    class="block py-2 text-gray-700 hover:text-accent transition">Home</a>
+                <a href="#about" @click="mobileMenuOpen = false"
+                    class="block py-2 text-gray-700 hover:text-accent transition">About</a>
+                <a href="#programs" @click="mobileMenuOpen = false"
+                    class="block py-2 text-gray-700 hover:text-accent transition">Programs</a>
+                <a href="#impact" @click="mobileMenuOpen = false"
+                    class="block py-2 text-gray-700 hover:text-accent transition">Impact</a>
+                <a href="#transparency" @click="mobileMenuOpen = false"
+                    class="block py-2 text-gray-700 hover:text-accent transition">Transparency</a>
+                <a href="#contact" @click="mobileMenuOpen = false"
+                    class="block py-2 text-gray-700 hover:text-accent transition">Contact</a>
+                <a href="#donate" @click="mobileMenuOpen = false"
+                    class="block py-3 mt-2 bg-accent text-white text-center rounded-full font-semibold">
+                    Donate Now
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home"
+        class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-primary via-slate-800 to-primary pt-20">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="Dr.Deepika/IMG_2878.JPG.jpeg" alt="Dr. Deepika Singh caring for patients"
+                class="w-full h-full object-cover opacity-30">
+            <div class="absolute inset-0 bg-gradient-to-br from-primary/90 via-slate-900/80 to-primary/90"></div>
+        </div>
+
+        <!-- Hero Content -->
+        <div class="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+            <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+                Healing Women.<br>Empowering Futures.
+            </h1>
+            <p class="text-xl sm:text-2xl text-gray-200 mb-4 max-w-3xl mx-auto">
+                A promise of dignity, health, and hope for every woman, at every stage of life.
+            </p>
+            <p class="text-lg sm:text-xl text-accent font-semibold mb-10">
+                A CSR Initiative by Dr. Deepika Singh
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="#donate"
+                    class="bg-accent hover:bg-yellow-600 text-white px-8 py-4 rounded-full font-bold text-lg transition duration-300 shadow-2xl hover:shadow-accent/50 hover:scale-105 transform">
+                    <i class="fas fa-heart mr-2"></i>Support Our Cause
+                </a>
+                <a href="#about"
+                    class="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white border-2 border-white px-8 py-4 rounded-full font-bold text-lg transition duration-300 hover:scale-105 transform">
+                    Learn More
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i class="fas fa-chevron-down text-white text-3xl"></i>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl sm:text-5xl font-bold text-primary mb-4">Who We Are</h2>
+                <p class="text-2xl text-accent font-semibold">Because Every Woman Deserves to be Heard, Healed, and
+                    Honored.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Text Content -->
+                <div class="space-y-6">
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        The Ridhima Foundation is more than a healthcare initiative; it is a <strong>movement to bridge
+                            the gap between medical need and accessible care</strong>. Founded by Dr. Deepika Singh, we
+                        are dedicated to the physical, emotional, and social well-being of women—specifically the
+                        underserved, the invisible, and the forgotten.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        In a world where women often put their families first and their health last, we step in to
+                        ensure <strong>they are prioritized</strong>.
+                    </p>
+
+                    <div class="bg-gradient-to-r from-primary to-slate-700 text-white p-8 rounded-2xl shadow-xl mt-8">
+                        <h3 class="text-2xl font-bold mb-4 flex items-center">
+                            <i class="fas fa-quote-left mr-3 text-accent"></i>
+                            Founder's Message
+                        </h3>
+                        <p class="text-gray-100 italic leading-relaxed">
+                            "In my years of practice, I have seen women endure unimaginable pain silently—sacrificing
+                            their health to save money for their children, their husbands, or their households. I have
+                            seen women ashamed to ask for help.
+                        </p>
+                        <p class="text-gray-100 italic leading-relaxed mt-4">
+                            <strong>Ridhima Foundation is my promise to them.</strong> It is a promise that you are not
+                            alone. It is a promise that your pain matters. We are here to hold your hand, heal your
+                            body, and restore your dignity."
+                        </p>
+                        <p class="text-accent font-bold mt-4">— Dr. Deepika Singh</p>
+                    </div>
+                </div>
+
+                <!-- Image -->
+                <div class="relative">
+                    <img src="Dr.Deepika/IMG_2879.JPG.jpeg" alt="Dr. Deepika Singh with patients"
+                        class="rounded-2xl shadow-2xl w-full h-auto">
+                    <div
+                        class="absolute -bottom-6 -left-6 bg-accent text-white p-6 rounded-xl shadow-xl hidden md:block">
+                        <p class="text-3xl font-bold">Healthcare</p>
+                        <p class="text-lg">is a Right, Not a Privilege</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Circle of Care Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 to-blue-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl sm:text-5xl font-bold text-primary mb-4">Our Holistic Commitment</h2>
+                <p class="text-xl text-gray-700">A Lifetime of Care: From the Girl Child to the Golden Years</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Girl Child -->
+                <div
+                    class="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition duration-300 hover:-translate-y-2 transform">
+                    <div class="text-center mb-6">
+                        <div class="bg-pink-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-child text-4xl text-pink-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-primary">Nurturing the Girl Child</h3>
+                        <p class="text-gray-600 mt-2">Adolescence & Puberty</p>
+                    </div>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
+                            <span><strong>Menstrual Dignity:</strong> Breaking taboos and providing eco-friendly hygiene
+                                kits</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
+                            <span><strong>Anemia Prevention:</strong> Nutrition counseling and health monitoring</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
+                            <span><strong>PCOS Awareness:</strong> Early detection and lifestyle guidance</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
+                            <span><strong>HPV Vaccination:</strong> Protecting the future generation</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Women -->
+                <div
+                    class="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition duration-300 hover:-translate-y-2 transform">
+                    <div class="text-center mb-6">
+                        <div class="bg-purple-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-female text-4xl text-purple-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-primary">Supporting the Woman</h3>
+                        <p class="text-gray-600 mt-2">Reproductive Years</p>
+                    </div>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
+                            <span><strong>Safe Motherhood:</strong> Pre-natal and post-partum care</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
+                            <span><strong>Fertility Support:</strong> Subsidized IVF/IUI treatments</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
+                            <span><strong>Intimate Hygiene:</strong> UTI prevention education</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
+                            <span><strong>Mental Wellness:</strong> Counseling and emotional support</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Senior Women -->
+                <div
+                    class="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition duration-300 hover:-translate-y-2 transform">
+                    <div class="text-center mb-6">
+                        <div class="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-user-friends text-4xl text-blue-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-primary">Honoring the Matriarch</h3>
+                        <p class="text-gray-600 mt-2">Menopause & Senior Care</p>
+                    </div>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
+                            <span><strong>Bone Health:</strong> Osteoporosis screening and prevention</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
+                            <span><strong>Menopause Management:</strong> Hormonal counseling</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
+                            <span><strong>Cancer Screening:</strong> Breast and cervical cancer detection</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
+                            <span><strong>Aging with Grace:</strong> Comprehensive senior health support</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programs" class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl sm:text-5xl font-bold text-primary mb-4">Core Impact Programs</h2>
+                <p class="text-xl text-gray-700">Comprehensive healthcare solutions tailored for women</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Program 1 -->
+                <div
+                    class="bg-gradient-to-br from-white to-pink-50 rounded-2xl shadow-lg p-8 hover:shadow-2xl transition duration-300 border border-pink-100">
+                    <div class="bg-pink-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-hospital text-3xl text-pink-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-3">🌷 Project Ridhima Outreach</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        Bringing top-tier gynecology and fertility consultations to the doorsteps of urban slums and
+                        rural belts. We go where the hospitals can't reach.
+                    </p>
+                </div>
+
+                <!-- Program 2 -->
+                <div
+                    class="bg-gradient-to-br from-white to-purple-50 rounded-2xl shadow-lg p-8 hover:shadow-2xl transition duration-300 border border-purple-100">
+                    <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-baby text-3xl text-purple-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-3">🌸 Hope for Motherhood</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        Financial status should not dictate fertility. We provide subsidized IVF, IUI, scans, and
+                        medicines for couples battling infertility and financial stress.
+                    </p>
+                </div>
+
+                <!-- Program 3 -->
+                <div
+                    class="bg-gradient-to-br from-white to-yellow-50 rounded-2xl shadow-lg p-8 hover:shadow-2xl transition duration-300 border border-yellow-100">
+                    <div class="bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-graduation-cap text-3xl text-yellow-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-3">🌼 Kishori Shakti</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        A school-based program focusing on menstrual hygiene, anemia screening, and nutrition counseling
+                        to build a generation of strong girls.
+                    </p>
+                </div>
+
+                <!-- Program 4 -->
+                <div
+                    class="bg-gradient-to-br from-white to-rose-50 rounded-2xl shadow-lg p-8 hover:shadow-2xl transition duration-300 border border-rose-100">
+                    <div class="bg-rose-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-ribbon text-3xl text-rose-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-3">🎗 The Pink Shield</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        Free mammograms, pap smears, and vaccination drives. We fight cancer through awareness and early
+                        detection.
+                    </p>
+                </div>
+
+                <!-- Program 5 -->
+                <div
+                    class="bg-gradient-to-br from-white to-blue-50 rounded-2xl shadow-lg p-8 hover:shadow-2xl transition duration-300 border border-blue-100">
+                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-brain text-3xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-3">🌺 Inner Healing</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        Health is not just physical. We offer counseling for marital stress, infertility trauma,
+                        postpartum depression, and anxiety.
+                    </p>
+                </div>
+
+                <!-- Program 6 -->
+                <div
+                    class="bg-gradient-to-br from-white to-indigo-50 rounded-2xl shadow-lg p-8 hover:shadow-2xl transition duration-300 border border-indigo-100">
+                    <div class="bg-indigo-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-heart text-3xl text-indigo-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-3">🌹 Graceful Aging</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        Dedicated clinics for bone density tests, hormonal counseling, and lifestyle guidance for women
+                        entering their second innings.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Stats Section -->
+    <section id="impact" class="py-20 px-4 sm:px-6 lg:px-8 bg-primary text-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl sm:text-5xl font-bold mb-4">Our Impact</h2>
+                <p class="text-xl text-gray-300">Making a difference, one woman at a time</p>
+            </div>
+
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="text-5xl sm:text-6xl font-bold text-accent mb-2">5000+</div>
+                    <div class="text-lg sm:text-xl text-gray-300">Women Empowered</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl sm:text-6xl font-bold text-accent mb-2">150+</div>
+                    <div class="text-lg sm:text-xl text-gray-300">Medical Camps</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl sm:text-6xl font-bold text-accent mb-2">200+</div>
+                    <div class="text-lg sm:text-xl text-gray-300">Fertility Treatments</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl sm:text-6xl font-bold text-accent mb-2">10+</div>
+                    <div class="text-lg sm:text-xl text-gray-300">Years of Service</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transparency Section -->
+    <section id="transparency" class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 to-gray-100">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl sm:text-5xl font-bold text-primary mb-4">Transparency & Ethics</h2>
+                <p class="text-xl text-gray-700">We practice full financial transparency and adhere to the highest
+                    standards</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition duration-300">
+                    <div class="text-center">
+                        <div class="bg-green-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-certificate text-4xl text-green-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-primary mb-3">12A Certified</h3>
+                        <p class="text-gray-700">
+                            Registered under Section 12A of the Income Tax Act, ensuring lawful operation and tax
+                            exemption status.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition duration-300">
+                    <div class="text-center">
+                        <div class="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-hand-holding-heart text-4xl text-blue-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-primary mb-3">80G Tax Exempt</h3>
+                        <p class="text-gray-700">
+                            Your donations are eligible for tax deductions under Section 80G, making your contribution
+                            go even further.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition duration-300">
+                    <div class="text-center">
+                        <div class="bg-purple-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-file-alt text-4xl text-purple-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-primary mb-3">Annual Reports</h3>
+                        <p class="text-gray-700">
+                            Complete transparency with detailed annual reports showing exactly how every rupee is
+                            utilized for patient care.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section id="donate" class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-accent to-yellow-600 text-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl sm:text-5xl font-bold mb-6">Join the Movement</h2>
+            <p class="text-2xl mb-4 font-semibold">Be the Reason a Woman Smiles Today</p>
+            <p class="text-xl mb-10 text-white/90">
+                Healthcare is expensive, but care doesn't have to be. Your support changes lives.
+            </p>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/20 transition">
+                    <i class="fas fa-syringe text-4xl mb-3"></i>
+                    <h4 class="font-bold text-lg">Sponsor a Treatment</h4>
+                    <p class="text-sm mt-2 text-white/90">Fund a fertility cycle or cancer screening</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/20 transition">
+                    <i class="fas fa-clinic-medical text-4xl mb-3"></i>
+                    <h4 class="font-bold text-lg">Adopt a Camp</h4>
+                    <p class="text-sm mt-2 text-white/90">Sponsor a day-long medical camp</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/20 transition">
+                    <i class="fas fa-hand-holding-medical text-4xl mb-3"></i>
+                    <h4 class="font-bold text-lg">Donate Supplies</h4>
+                    <p class="text-sm mt-2 text-white/90">Medicines, pads, supplements</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/20 transition">
+                    <i class="fas fa-user-md text-4xl mb-3"></i>
+                    <h4 class="font-bold text-lg">Volunteer</h4>
+                    <p class="text-sm mt-2 text-white/90">Lend your medical skills</p>
+                </div>
+            </div>
+
+            <a href="#"
+                class="inline-block bg-white text-accent hover:bg-gray-100 px-10 py-4 rounded-full font-bold text-xl transition duration-300 shadow-2xl hover:scale-105 transform">
+                <i class="fas fa-heart mr-2"></i>Donate Now
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact/Footer Section -->
+    <footer id="contact" class="bg-slate-900 text-white py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-12 mb-8">
+                <!-- Column 1: Contact Info -->
+                <div>
+                    <img src="NewLogo.png" alt="Ridhima Foundation Logo" class="h-16 w-auto mb-4">
+                    <h3 class="text-2xl font-bold mb-4">Ridhima Foundation</h3>
+                    <p class="text-gray-400 mb-4">Healing Women. Empowering Futures.</p>
+                    <div class="space-y-3">
+                        <p class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-accent mr-3 mt-1"></i>
+                            <span class="text-gray-300">F-11 South Extension part 1<br>New Delhi</span>
+                        </p>
+                        <p class="flex items-center">
+                            <i class="fas fa-phone text-accent mr-3"></i>
+                            <span class="text-gray-300">+91 8595954095</span>
+                        </p>
+                        <p class="flex items-center">
+                            <i class="fas fa-envelope text-accent mr-3"></i>
+                            <span class="text-gray-300">drdeepikasingh17@gmail.com</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-accent transition">Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-accent transition">About Us</a></li>
+                        <li><a href="#programs" class="text-gray-400 hover:text-accent transition">Our Programs</a></li>
+                        <li><a href="#impact" class="text-gray-400 hover:text-accent transition">Our Impact</a></li>
+                        <li><a href="#transparency" class="text-gray-400 hover:text-accent transition">Transparency</a>
+                        </li>
+                        <li><a href="#donate" class="text-gray-400 hover:text-accent transition">Donate</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Legal & Social -->
+                <div>
+
+
+                    <h4 class="text-xl font-bold mb-3">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#"
+                            class="bg-white/10 hover:bg-accent w-10 h-10 rounded-full flex items-center justify-center transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#"
+                            class="bg-white/10 hover:bg-accent w-10 h-10 rounded-full flex items-center justify-center transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#"
+                            class="bg-white/10 hover:bg-accent w-10 h-10 rounded-full flex items-center justify-center transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#"
+                            class="bg-white/10 hover:bg-accent w-10 h-10 rounded-full flex items-center justify-center transition">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="border-t border-gray-700 pt-8 text-center text-gray-400">
+                <p>&copy; 2026 Ridhima Foundation. All Rights Reserved. | A CSR Initiative by Dr. Deepika Singh</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
