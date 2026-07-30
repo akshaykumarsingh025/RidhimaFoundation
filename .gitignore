@@ -18,3 +18,6 @@ __pycache__/
 *.avi
 *.jpg
 *.png
+
+# Local-only source material (bio sheets, reference docs)
+details/
