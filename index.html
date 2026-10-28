@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -10,1943 +10,1076 @@
         content="menstrual hygiene workshops Delhi, maternal health resources rural India, free medical camps women, women's health foundation India, empowering girls health education, gynecology camps Delhi NCR, fertility support low income, PCOS awareness programs, menopause support India, breast cancer screening free">
     <meta name="author" content="Dr. Deepika Singh, MBBS, MD - Gynecologist; Dr. Raj Kumar Singh, MBBS, MS - Surgeon">
     <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#fbf7f2">
     <title>Ridhima Foundation | Free Women's Health Camps & Workshops in Delhi NCR</title>
 
-    <!-- Favicon -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Ridhima Foundation — Healing Women. Empowering Futures.">
+    <meta property="og:description"
+        content="Free medical camps, adolescent health programmes and subsidised fertility care for underserved women in Delhi NCR.">
+    <meta property="og:image" content="MedicalCamp/IMG_0355.jpg">
+
     <link rel="icon" type="image/png" href="NewLogo.png">
 
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap"
         rel="stylesheet">
 
-    <!-- FontAwesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer">
-
-    <!-- Alpine.js CDN -->
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.15.8/dist/cdn.min.js"></script>
-
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-family: 'Montserrat', serif;
-        }
-
-        /* Scroll-triggered animations */
-        .scroll-reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-
-        .scroll-reveal.revealed {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .scroll-reveal-left {
-            opacity: 0;
-            transform: translateX(-40px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-
-        .scroll-reveal-left.revealed {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .scroll-reveal-right {
-            opacity: 0;
-            transform: translateX(40px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-
-        .scroll-reveal-right.revealed {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        /* Staggered children animation */
-        .scroll-reveal-stagger>* {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-
-        .scroll-reveal-stagger.revealed>* {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .scroll-reveal-stagger.revealed>*:nth-child(1) {
-            transition-delay: 0.1s;
-        }
-
-        .scroll-reveal-stagger.revealed>*:nth-child(2) {
-            transition-delay: 0.2s;
-        }
-
-        .scroll-reveal-stagger.revealed>*:nth-child(3) {
-            transition-delay: 0.3s;
-        }
-
-        .scroll-reveal-stagger.revealed>*:nth-child(4) {
-            transition-delay: 0.4s;
-        }
-
-        .scroll-reveal-stagger.revealed>*:nth-child(5) {
-            transition-delay: 0.5s;
-        }
-
-        .scroll-reveal-stagger.revealed>*:nth-child(6) {
-            transition-delay: 0.6s;
-        }
-
-        /* Hero gradient animation */
-        @keyframes gradientShift {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
-        .animated-gradient {
-            background-size: 200% 200%;
-            animation: gradientShift 8s ease infinite;
-        }
-
-        /* Preloader */
-        #preloader {
-            position: fixed;
-            inset: 0;
-            z-index: 9999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #0F172A;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
-        }
-
-        #preloader.hidden {
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        .loader-pulse {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: #F59E0B;
-            animation: pulse 1.2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-
-            0%,
-            100% {
-                transform: scale(0.8);
-                opacity: 0.5;
-            }
-
-            50% {
-                transform: scale(1.2);
-                opacity: 1;
-            }
-        }
-
-        /* Lightbox */
-        #lightbox {
-            position: fixed;
-            inset: 0;
-            z-index: 9998;
-            background: rgba(0, 0, 0, 0.9);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            cursor: zoom-out;
-        }
-
-        #lightbox.active {
-            display: flex;
-        }
-
-        #lightbox img {
-            max-width: 90vw;
-            max-height: 90vh;
-            object-fit: contain;
-            border-radius: 12px;
-            animation: lightboxIn 0.3s ease;
-        }
-
-        @keyframes lightboxIn {
-            from {
-                transform: scale(0.8);
-                opacity: 0;
-            }
-
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        #lightbox .lightbox-close {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            color: white;
-            font-size: 2rem;
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
-
-        #lightbox .lightbox-close:hover {
-            transform: scale(1.2);
-        }
-
-        /* Contact Form Styles */
-        .form-input {
-            transition: all 0.3s ease;
-            border: 2px solid #e2e8f0;
-        }
-
-        .form-input:focus {
-            border-color: #F59E0B;
-            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.15);
-        }
-
-        .form-input.error {
-            border-color: #ef4444;
-            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
-        }
-
-        .error-message {
-            color: #ef4444;
-            font-size: 0.8rem;
-            margin-top: 4px;
-            display: none;
-        }
-
-        .error-message.visible {
-            display: block;
-            animation: slideDown 0.3s ease;
-        }
-
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-5px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes successPulse {
-            0% {
-                transform: scale(0);
-                opacity: 0;
-            }
-
-            50% {
-                transform: scale(1.1);
-            }
-
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        .success-icon {
-            animation: successPulse 0.6s ease forwards;
-        }
-
-        /* Back to top */
-        #backToTop {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 100;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(20px);
-            transition: all 0.3s ease;
-        }
-
-        #backToTop.visible {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        /* Navbar transition */
-        nav {
-            transition: all 0.3s ease;
-        }
-
-        nav.scrolled {
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
-            backdrop-filter: blur(10px);
-            background: rgba(255, 255, 255, 0.95) !important;
-        }
-
-        nav.scrolled .nav-inner {
-            height: 64px !important;
-        }
-    </style>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#0F172A',
-                        accent: '#F59E0B',
-                        bglight: '#F8FAFC',
-                    },
-                    animation: {
-                        'float': 'float 3s ease-in-out infinite',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-10px)' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+    <link rel="stylesheet" href="styles.css">
+    <script>document.documentElement.classList.add('js');</script>
+    <script defer src="main.js"></script>
 </head>
 
-<body class="bg-bglight">
+<body>
 
-    <!-- Preloader -->
-    <div id="preloader">
-        <div class="loader-pulse"></div>
+    <!-- Icon sprite -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M13 6l6 6-6 6" />
+        </symbol>
+        <symbol id="i-arrow-ur" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M7 17L17 7M8 7h9v9" />
+        </symbol>
+        <symbol id="i-whatsapp" viewBox="0 0 24 24" fill="currentColor">
+            <path
+                d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.47-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.6-.92-2.2-.24-.58-.48-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.05 21.8h-.01a9.87 9.87 0 01-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 01-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 012.89 6.99c0 5.45-4.44 9.88-9.88 9.88zm8.41-18.3A11.81 11.81 0 0012.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 005.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41z" />
+        </symbol>
+        <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="5" width="18" height="14" rx="1.5" />
+            <path d="M3.5 6l8.5 7 8.5-7" />
+        </symbol>
+        <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 21s-7-6.2-7-11.5a7 7 0 0114 0C19 14.8 12 21 12 21z" />
+            <circle cx="12" cy="9.5" r="2.5" />
+        </symbol>
+        <symbol id="i-steth" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 3v5a4 4 0 008 0V3M10 12v2a5 5 0 0010 0v-2" />
+            <circle cx="20" cy="10" r="2" />
+        </symbol>
+        <symbol id="i-pill" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2.5" y="8.5" width="19" height="7" rx="3.5" transform="rotate(-45 12 12)" />
+            <path d="M8.5 8.5l7 7" />
+        </symbol>
+        <symbol id="i-scope" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 21h12M9 17h6M12 17v4M10 3l4 4-5 5-4-4zM13 10a5 5 0 014 7" />
+        </symbol>
+        <symbol id="i-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.8 5.6a5.5 5.5 0 00-7.8 0L12 6.7l-1-1.1a5.5 5.5 0 00-7.8 7.8L12 22l8.8-8.6a5.5 5.5 0 000-7.8z" />
+            <path d="M3 12h4l2-3 3 6 2-3h7" />
+        </symbol>
+        <symbol id="i-live" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2.5" y="5" width="19" height="14" rx="3" />
+            <path d="M10 9.5v5l4.5-2.5z" fill="currentColor" />
+        </symbol>
+        <symbol id="i-library" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="13" height="16" rx="1.5" />
+            <path d="M16 9l5-3v12l-5-3" />
+        </symbol>
+        <symbol id="i-heart" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 21s-7.5-4.6-9.6-9.4C.9 8.1 3 4.5 6.6 4.5c2.1 0 3.6 1.2 4.4 2.5.8-1.3 2.3-2.5 4.4-2.5 3.6 0 5.7 3.6 4.2 7.1C19.5 16.4 12 21 12 21z" />
+        </symbol>
+        <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12.5l4.5 4.5L19 7.5" />
+        </symbol>
+        <symbol id="i-cross" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6z" />
+        </symbol>
+        <symbol id="i-tent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 20L12 4l9 16zM12 20v-6l-3 6M12 14l3 6M2 20h20" />
+        </symbol>
+        <symbol id="i-box" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3.5 7.5L12 3l8.5 4.5v9L12 21l-8.5-4.5zM3.5 7.5L12 12l8.5-4.5M12 12v9" />
+        </symbol>
+        <symbol id="i-hands" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="8" cy="7" r="3" />
+            <circle cx="17" cy="8" r="2.5" />
+            <path d="M2.5 20c.5-3.6 2.7-6 5.5-6s5 2.4 5.5 6M14 14.6c.9-.7 1.9-1.1 3-1.1 2.5 0 4.2 2 4.5 5.5" />
+        </symbol>
+        <symbol id="i-facebook" viewBox="0 0 24 24" fill="currentColor">
+            <path
+                d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.6c0-.86.24-1.45 1.48-1.45h1.57V4.47A21 21 0 0014.27 4c-2.27 0-3.82 1.39-3.82 3.93v2.57H8v3h2.45V21z" />
+        </symbol>
+        <symbol id="i-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+            <rect x="3.5" y="3.5" width="17" height="17" rx="4.5" />
+            <circle cx="12" cy="12" r="4" />
+            <circle cx="17.3" cy="6.7" r=".6" fill="currentColor" />
+        </symbol>
+        <symbol id="i-youtube" viewBox="0 0 24 24" fill="currentColor">
+            <path
+                d="M21.6 7.2a2.5 2.5 0 00-1.77-1.77C18.27 5 12 5 12 5s-6.27 0-7.83.43A2.5 2.5 0 002.4 7.2 26 26 0 002 12a26 26 0 00.4 4.8 2.5 2.5 0 001.77 1.77C5.73 19 12 19 12 19s6.27 0 7.83-.43a2.5 2.5 0 001.77-1.77A26 26 0 0022 12a26 26 0 00-.4-4.8zM10 15V9l5.2 3z" />
+        </symbol>
+    </svg>
+
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- Navigation -->
+    <header class="nav">
+        <div class="wrap">
+            <a href="#home" class="brand" aria-label="Ridhima Foundation — home">
+                <img src="NewLogo.png" alt="" width="44" height="44">
+                <span class="brand-name">Ridhima Foundation<small>Women's health · New Delhi</small></span>
+            </a>
+
+            <nav aria-label="Primary">
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#programs">Programs</a></li>
+                    <li><a href="#medical-camp">Medical Camps</a></li>
+                    <li><a href="#founders">Founders</a></li>
+                    <li><a href="#workshops">Workshops</a></li>
+                    <li><a href="#transparency">Transparency</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                </ul>
+            </nav>
+
+            <a href="#get-involved" class="btn btn-brand nav-cta">Get involved
+                <svg aria-hidden="true"><use href="#i-arrow" /></svg></a>
+
+            <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false"
+                aria-controls="mobile-menu"><span></span></button>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="#about">About</a>
+        <a href="#programs">Programs</a>
+        <a href="#medical-camp">Medical Camps</a>
+        <a href="#founders">Founders</a>
+        <a href="#workshops">Workshops</a>
+        <a href="#transparency">Transparency</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+        <a href="#get-involved" class="btn btn-brand">Get involved
+            <svg aria-hidden="true"><use href="#i-arrow" /></svg></a>
     </div>
 
-    <!-- Navbar -->
-    <nav x-data="{ mobileMenuOpen: false }" class="bg-white shadow-md fixed top-0 left-0 right-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20 nav-inner transition-all duration-300">
-                <!-- Logo -->
-                <div class="flex items-center">
-                    <img src="NewLogo.png" alt="Ridhima Foundation Logo" class="h-14 w-auto">
-                    <span class="ml-3 text-xl font-bold text-primary">Ridhima Foundation</span>
-                </div>
+    <main id="main">
 
-                <!-- Desktop Navigation -->
-                <div class="hidden md:flex items-center space-x-6">
-                    <a href="#home" class="text-gray-700 hover:text-accent transition duration-300">Home</a>
-                    <a href="#about" class="text-gray-700 hover:text-accent transition duration-300">About</a>
-                    <a href="#founders" class="text-gray-700 hover:text-accent transition duration-300">Founders</a>
-                    <a href="#programs" class="text-gray-700 hover:text-accent transition duration-300">Programs</a>
-                    <a href="#medical-camp" class="text-gray-700 hover:text-accent transition duration-300">Medical
-                        Camps</a>
-                    <a href="#impact" class="text-gray-700 hover:text-accent transition duration-300">Impact</a>
-                    <a href="#transparency"
-                        class="text-gray-700 hover:text-accent transition duration-300">Transparency</a>
-                    <a href="#gallery" class="text-gray-700 hover:text-accent transition duration-300">Gallery</a>
-                    <a href="#contact" class="text-gray-700 hover:text-accent transition duration-300">Contact</a>
-                    <!-- Donate button hidden for now
-                    <a href="#donate"
-                        class="bg-accent hover:bg-yellow-600 text-white px-6 py-2 rounded-full font-semibold transition duration-300 shadow-lg hover:shadow-xl">
-                        Donate Now
-                    </a>
-                    -->
-                </div>
-
-                <!-- Mobile Menu Button -->
-                <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden text-gray-700 focus:outline-none">
-                    <i class="fas fa-bars text-2xl" x-show="!mobileMenuOpen"></i>
-                    <i class="fas fa-times text-2xl" x-show="mobileMenuOpen"></i>
-                </button>
-            </div>
-        </div>
-
-        <!-- Mobile Menu -->
-        <div x-show="mobileMenuOpen" x-transition:enter="transition ease-out duration-200"
-            x-transition:enter-start="opacity-0 transform -translate-y-2"
-            x-transition:enter-end="opacity-100 transform translate-y-0"
-            x-transition:leave="transition ease-in duration-150"
-            x-transition:leave-start="opacity-100 transform translate-y-0"
-            x-transition:leave-end="opacity-0 transform -translate-y-2"
-            class="md:hidden bg-white border-t border-gray-200">
-            <div class="px-4 pt-2 pb-4 space-y-2">
-                <a href="#home" @click="mobileMenuOpen = false"
-                    class="block py-2 text-gray-700 hover:text-accent transition">Home</a>
-                <a href="#about" @click="mobileMenuOpen = false"
-                    class="block py-2 text-gray-700 hover:text-accent transition">About</a>
-                <a href="#founders" @click="mobileMenuOpen = false"
-                    class="block py-2 text-gray-700 hover:text-accent transition">Founders</a>
-                <a href="#programs" @click="mobileMenuOpen = false"
-                    class="block py-2 text-gray-700 hover:text-accent transition">Programs</a>
-                <a href="#medical-camp" @click="mobileMenuOpen = false"
-                    class="block py-2 text-gray-700 hover:text-accent transition">Medical Camps</a>
-                <a href="#impact" @click="mobileMenuOpen = false"
-                    class="block py-2 text-gray-700 hover:text-accent transition">Impact</a>
-                <a href="#transparency" @click="mobileMenuOpen = false"
-                    class="block py-2 text-gray-700 hover:text-accent transition">Transparency</a>
-                <a href="#gallery" @click="mobileMenuOpen = false"
-                    class="block py-2 text-gray-700 hover:text-accent transition">Gallery</a>
-                <a href="#contact" @click="mobileMenuOpen = false"
-                    class="block py-2 text-gray-700 hover:text-accent transition">Contact</a>
-                <!-- Donate button hidden for now
-                <a href="#donate" @click="mobileMenuOpen = false"
-                    class="block py-3 mt-2 bg-accent text-white text-center rounded-full font-semibold">
-                    Donate Now
-                </a>
-                -->
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="home"
-        class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-primary via-slate-800 to-primary pt-20 animated-gradient">
-        <!-- Background Image with Overlay -->
-        <div class="absolute inset-0 z-0">
-            <img src="Dr.Deepika/IMG_2878.jpg"
-                alt="Dr. Deepika Singh, gynecologist, providing care at free medical camp for women in Delhi"
-                class="w-full h-full object-cover opacity-30" loading="eager" decoding="async">
-            <div class="absolute inset-0 bg-gradient-to-br from-primary/90 via-slate-900/80 to-primary/90"></div>
-        </div>
-
-        <!-- Hero Content -->
-        <div class="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
-            <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-                Healing Women.<br>Empowering Futures.
-            </h1>
-            <p class="text-xl sm:text-2xl text-gray-200 mb-4 max-w-3xl mx-auto">
-                A promise of dignity, health, and hope for every woman, at every stage of life.
-            </p>
-            <p class="text-lg sm:text-xl text-accent font-semibold mb-10">
-                A CSR Initiative by Dr. Deepika Singh
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <a href="#donate"
-                    class="bg-accent hover:bg-yellow-600 text-white px-8 py-4 rounded-full font-bold text-lg transition duration-300 shadow-2xl hover:shadow-accent/50 hover:scale-105 transform">
-                    <i class="fas fa-heart mr-2"></i>Support Our Cause
-                </a>
-                <a href="#about"
-                    class="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white border-2 border-white px-8 py-4 rounded-full font-bold text-lg transition duration-300 hover:scale-105 transform">
-                    Learn More
-                </a>
-            </div>
-        </div>
-
-        <!-- Scroll Indicator -->
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <i class="fas fa-chevron-down text-white text-3xl"></i>
-        </div>
-    </section>
-
-    <!-- About Us Section -->
-    <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16 scroll-reveal">
-                <h2 class="text-4xl sm:text-5xl font-bold text-primary mb-4">Who We Are</h2>
-                <p class="text-2xl text-accent font-semibold">Because Every Woman Deserves to be Heard, Healed, and
-                    Honored.</p>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <!-- Text Content -->
-                <div class="space-y-6">
-                    <p class="text-lg text-gray-700 leading-relaxed">
-                        The Ridhima Foundation is more than a healthcare initiative; it is a <strong>movement to bridge
-                            the gap between medical need and accessible care</strong>. Founded by Dr. Deepika Singh
-                        alongside co-founder Dr. Raj Kumar Singh, we are dedicated to the physical, emotional, and
-                        social well-being of women—specifically the underserved, the invisible, and the forgotten.
-                    </p>
-                    <p class="text-lg text-gray-700 leading-relaxed">
-                        In a world where women often put their families first and their health last, we step in to
-                        ensure <strong>they are prioritized</strong>.
-                    </p>
-
-                    <div class="bg-gradient-to-r from-primary to-slate-700 text-white p-8 rounded-2xl shadow-xl mt-8">
-                        <h3 class="text-2xl font-bold mb-4 flex items-center">
-                            <i class="fas fa-quote-left mr-3 text-accent"></i>
-                            Founder's Message
-                        </h3>
-                        <p class="text-gray-100 italic leading-relaxed">
-                            "In my years of practice, I have seen women endure unimaginable pain silently—sacrificing
-                            their health to save money for their children, their husbands, or their households. I have
-                            seen women ashamed to ask for help.
-                        </p>
-                        <p class="text-gray-100 italic leading-relaxed mt-4">
-                            <strong>Ridhima Foundation is my promise to them.</strong> It is a promise that you are not
-                            alone. It is a promise that your pain matters. We are here to hold your hand, heal your
-                            body, and restore your dignity."
-                        </p>
-                        <p class="text-accent font-bold mt-4">— Dr. Deepika Singh</p>
+        <!-- Hero -->
+        <section id="home" class="hero">
+            <div class="wrap">
+                <div class="hero-grid">
+                    <div>
+                        <span class="eyebrow">A CSR initiative by Dr. Deepika Singh</span>
+                        <h1>Healing women.<br>Empowering <span class="serif">futures.</span></h1>
+                        <p class="hero-sub">A promise of dignity, health, and hope for every woman, at every stage of
+                            life.</p>
+                        <div class="hero-actions">
+                            <a href="#contact" class="btn btn-brand" data-topic="CSR Partnership">Support our cause
+                                <svg aria-hidden="true"><use href="#i-arrow" /></svg></a>
+                            <a href="#contact" class="btn btn-ghost" data-topic="Volunteer with Us">Volunteer with
+                                us</a>
+                        </div>
                     </div>
+
+                    <figure class="hero-media">
+                        <img src="Dr.Deepika/hero-portrait.jpg"
+                            alt="Dr. Deepika Singh, gynecologist, providing care at free medical camp for women in Delhi"
+                            loading="eager" fetchpriority="high" decoding="async">
+                        <figcaption class="hero-caption"><strong>Dr. Deepika Singh</strong>Founder · MD, AIIMS New
+                            Delhi</figcaption>
+                        <span class="shape shape-sun" aria-hidden="true"></span>
+                        <span class="shape shape-ring" aria-hidden="true"></span>
+                        <div class="hero-float">
+                            <span class="heart" aria-hidden="true"><svg><use href="#i-heart" /></svg></span>
+                            <span><b>5,000+</b>women cared for, free of cost</span>
+                        </div>
+                    </figure>
                 </div>
 
-                <!-- Image -->
-                <div class="relative">
-                    <img src="Dr.Deepika/IMG_2879.jpg" alt="Dr. Deepika Singh with patients"
-                        class="rounded-2xl shadow-2xl w-full h-auto">
-                    <div
-                        class="absolute -bottom-6 -left-6 bg-accent text-white p-6 rounded-xl shadow-xl hidden md:block">
-                        <p class="text-3xl font-bold">Healthcare</p>
-                        <p class="text-lg">is a Right, Not a Privilege</p>
+                <div class="hero-meta">
+                    <div><b>Since</b>Over a decade of service to women across Delhi NCR</div>
+                    <div><b>Free care</b>Consultations, medicines and screenings at no cost</div>
+                    <div><b>Lifelong</b>From the girl child to the golden years</div>
+                    <div><b>Certified</b>Registered under 12A &amp; 80G</div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Impact -->
+        <section id="impact" class="section on-dark panel">
+            <div class="wrap">
+                <div class="section-head split reveal">
+                    <div>
+                        <span class="eyebrow">Our impact</span>
+                        <h2 style="margin-top:20px">Making a difference, <span class="serif">one woman</span> at a time.
+                        </h2>
+                    </div>
+                    <p class="lede">Every number below is a woman who was seen, heard and cared for — in a camp, a
+                        classroom or a clinic.</p>
+                </div>
+
+                <div class="stats reveal">
+                    <div class="stat">
+                        <div class="stat-num counter" data-target="5000" data-suffix="+">5,000+</div>
+                        <div class="stat-label">Women empowered</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-num counter" data-target="150" data-suffix="+">150+</div>
+                        <div class="stat-label">Medical camps</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-num counter" data-target="200" data-suffix="+">200+</div>
+                        <div class="stat-label">Fertility treatments</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-num counter" data-target="10" data-suffix="+">10+</div>
+                        <div class="stat-label">Years of service</div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Our Founders Section -->
-    <section id="founders" class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-primary via-slate-800 to-primary">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16 scroll-reveal">
-                <h2 class="text-4xl sm:text-5xl font-bold text-white mb-4">Our Founders</h2>
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto">Two doctors, one promise: that quality care should
-                    never depend on what a family can afford.</p>
-            </div>
+        <!-- About -->
+        <section id="about" class="section">
+            <div class="wrap">
+                <div class="about-grid">
+                    <div class="reveal">
+                        <span class="eyebrow">01 — Who we are</span>
+                        <h2 style="font-size:clamp(2.25rem,5vw,4rem);margin:20px 0 36px;max-width:16ch">Because every
+                            woman deserves to be <span class="serif">heard, healed, and honored.</span></h2>
+                        <div class="about-copy">
+                            <p>The Ridhima Foundation is more than a healthcare initiative; it is a <strong>movement to
+                                    bridge the gap between medical need and accessible care</strong>. Founded by Dr.
+                                Deepika Singh alongside co-founder Dr. Raj Kumar Singh, we are dedicated to the
+                                physical, emotional, and social well-being of women—specifically the underserved, the
+                                invisible, and the forgotten.</p>
+                            <p>In a world where women often put their families first and their health last, we step in
+                                to ensure <strong>they are prioritized</strong>.</p>
+                        </div>
+                        <div class="principle">
+                            <span class="principle-icon" aria-hidden="true"><svg><use href="#i-heart" /></svg></span>
+                            <p>Healthcare is a right, <span class="serif">not a privilege.</span></p>
+                        </div>
+                    </div>
 
-            <div class="grid lg:grid-cols-2 gap-10 scroll-reveal-stagger">
-
-                <!-- Dr. Deepika Singh -->
-                <article
-                    class="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col hover:shadow-2xl transition duration-300">
-                    <div class="relative">
-                        <img src="Dr.Deepika/DrDeepikaSingh.jpg"
-                            alt="Dr. Deepika Singh, MBBS, MD (AIIMS) - Founder of Ridhima Foundation"
-                            class="w-full h-[400px] sm:h-[480px] object-cover object-top" loading="lazy"
+                    <figure class="about-figure reveal">
+                        <img src="Dr.Deepika/IMG_2879.jpg" alt="Dr. Deepika Singh with patients" loading="lazy"
                             decoding="async">
-                        <span
-                            class="absolute top-5 left-5 bg-accent text-white text-sm font-bold px-4 py-2 rounded-full shadow-lg">
-                            Founder
-                        </span>
-                        <div
-                            class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-primary via-primary/80 to-transparent px-6 pt-16 pb-6">
-                            <h3 class="text-2xl sm:text-3xl font-bold text-white">Dr. Deepika Singh</h3>
-                            <p class="text-accent font-semibold mt-1">MBBS, MD (AIIMS New Delhi) &middot; MCCG, Germany
-                            </p>
-                            <p class="text-gray-200 text-sm mt-1">Obstetrician &amp; Gynaecologist</p>
-                        </div>
-                    </div>
-
-                    <div class="p-6 sm:p-8 space-y-7 flex-1">
-                        <p class="text-gray-700 leading-relaxed">
-                            An obstetrician and gynaecologist trained at AIIMS New Delhi, Dr. Deepika Singh has spent her
-                            career caring for women through pregnancy, fertility, surgery and menopause. Ridhima
-                            Foundation grew out of what she saw in her own practice — women delaying treatment they
-                            could not afford, and suffering in silence for want of someone to ask.
-                        </p>
-
-                        <p class="text-gray-700 leading-relaxed italic border-l-4 border-accent pl-4">
-                            "We believe that good health is much more than just being disease-free — and hence, rather
-                            than just treating the disease, we focus on healing the person."
-                        </p>
-
-                        <!-- Education -->
-                        <div>
-                            <h4 class="text-primary font-bold mb-3 flex items-center">
-                                <i class="fas fa-graduation-cap text-accent mr-3"></i>Education
-                            </h4>
-                            <ul class="space-y-2 text-gray-700">
-                                <li class="flex items-start">
-                                    <i class="fas fa-angle-right text-accent mr-3 mt-1.5"></i>
-                                    <span>MD, Obstetrics &amp; Gynaecology — AIIMS, New Delhi</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-angle-right text-accent mr-3 mt-1.5"></i>
-                                    <span>MBBS — BRD Medical College</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-angle-right text-accent mr-3 mt-1.5"></i>
-                                    <span>Senior Resident — AIIMS, New Delhi</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-angle-right text-accent mr-3 mt-1.5"></i>
-                                    <span>MCCG — Germany</span>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <!-- Expertise -->
-                        <div>
-                            <h4 class="text-primary font-bold mb-3 flex items-center">
-                                <i class="fas fa-stethoscope text-accent mr-3"></i>Areas of Special Interest
-                            </h4>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="bg-blue-50 text-primary text-sm px-3 py-1.5 rounded-full">High-Risk
-                                    Pregnancy &amp; Delivery</span>
-                                <span class="bg-blue-50 text-primary text-sm px-3 py-1.5 rounded-full">Gynae
-                                    Laparoscopic Surgery</span>
-                                <span class="bg-blue-50 text-primary text-sm px-3 py-1.5 rounded-full">Diagnostic
-                                    Laparoscopy &amp; Hysteroscopy</span>
-                                <span class="bg-blue-50 text-primary text-sm px-3 py-1.5 rounded-full">Ovarian
-                                    Cystectomy &amp; Salpingectomy</span>
-                                <span class="bg-blue-50 text-primary text-sm px-3 py-1.5 rounded-full">Gynae
-                                    Oncology</span>
-                                <span class="bg-blue-50 text-primary text-sm px-3 py-1.5 rounded-full">Obstetric &amp;
-                                    Gynaecologic Ultrasound</span>
-                                <span class="bg-blue-50 text-primary text-sm px-3 py-1.5 rounded-full">Family
-                                    Planning</span>
-                                <span class="bg-blue-50 text-primary text-sm px-3 py-1.5 rounded-full">IVF &amp;
-                                    Fertility</span>
-                            </div>
-                        </div>
-
-                        <!-- Hospitals -->
-                        <div>
-                            <h4 class="text-primary font-bold mb-3 flex items-center">
-                                <i class="fas fa-hospital text-accent mr-3"></i>Consultant &amp; Visiting Roles
-                            </h4>
-                            <p class="text-gray-700 leading-relaxed">
-                                Attending Consultant at <strong>Max Saket</strong> and <strong>Max
-                                    Panchsheel</strong>; visiting consultant at <strong>Cloudnine Hospital</strong>,
-                                <strong>SAMA Hospital</strong> (Siri Fort Road), <strong>Irene Hospital</strong>
-                                (Kalkaji) and <strong>Oncoplus Hospital</strong> (Defence Colony).
-                            </p>
-                        </div>
-
-                        <!-- Publications -->
-                        <div>
-                            <h4 class="text-primary font-bold mb-3 flex items-center">
-                                <i class="fas fa-book-medical text-accent mr-3"></i>Papers &amp; Publications
-                            </h4>
-                            <ul class="space-y-3 text-gray-700 text-sm">
-                                <li>
-                                    <span class="font-semibold">Assessment of Lower Segment Caesarean Scar by
-                                        Transvaginal Ultrasound and MRI</span> (thesis paper) — Deepika, Kumar S, Sharma
-                                    R, Roy KK, Sharma JB, Singh N. <em>Ann. Int. Med. Den. Res.</em> 2019;5(4).
-                                </li>
-                                <li>
-                                    <span class="font-semibold">Cervicovesical Fistula — A Rare Case Report in a
-                                        24-Year-Old Woman with Secondary Amenorrhoea</span> — Deepika, Deka D, Dadhwal
-                                    V. <em>Asian Journal of Medical Research</em>, 2019.
-                                </li>
-                                <li>
-                                    <span class="font-semibold">Congenital Absence of the Cervix — Its Place in the
-                                        Present Classification of Female Genital Tract Malformation</span> — Deepika,
-                                    Deka D, Dadhwal V, Malhotra N, Sharma A. <em>Ann. Int. Med. Den. Res.</em>
-                                    2019;5(4).
-                                </li>
-                            </ul>
-                        </div>
-
-                        <!-- Memberships -->
-                        <div>
-                            <h4 class="text-primary font-bold mb-3 flex items-center">
-                                <i class="fas fa-id-badge text-accent mr-3"></i>Professional Memberships
-                            </h4>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1.5 rounded-full">AOGD</span>
-                                <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1.5 rounded-full">Indian
-                                    Fertility Society</span>
-                                <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1.5 rounded-full">Society of
-                                    Fetal Medicine</span>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Dr. Raj Kumar Singh -->
-                <article
-                    class="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col hover:shadow-2xl transition duration-300">
-                    <div class="relative">
-                        <img src="Dr.Raj/DrRajKumarSingh.jpg"
-                            alt="Dr. Raj Kumar Singh, MBBS, MS, FIAGES, FMAS - Co-Founder of Ridhima Foundation"
-                            class="w-full h-[400px] sm:h-[480px] object-cover object-top" loading="lazy"
-                            decoding="async">
-                        <span
-                            class="absolute top-5 left-5 bg-accent text-white text-sm font-bold px-4 py-2 rounded-full shadow-lg">
-                            Co-Founder
-                        </span>
-                        <div
-                            class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-primary via-primary/80 to-transparent px-6 pt-16 pb-6">
-                            <h3 class="text-2xl sm:text-3xl font-bold text-white">Dr. Raj Kumar Singh</h3>
-                            <p class="text-accent font-semibold mt-1">MBBS, MS (Gen. Surgery) &middot; FIAGES, FMAS,
-                                MCLS, FALS (Robotics)</p>
-                            <p class="text-gray-200 text-sm mt-1">Bariatric, Laparoscopic &amp; Laser Surgeon</p>
-                        </div>
-                    </div>
-
-                    <div class="p-6 sm:p-8 space-y-7 flex-1">
-                        <p class="text-gray-700 leading-relaxed">
-                            A senior surgeon practising in Delhi for over 20 years, Dr. Raj Kumar Singh specialises in
-                            gastrointestinal, colorectal and minimal access (laparoscopic) surgery, including bariatric
-                            weight-loss surgery. He is Senior Consultant in the Department of Surgical Sciences at Delhi
-                            Surgical Centre, New Delhi.
-                        </p>
-
-                        <!-- Stats -->
-                        <div class="grid grid-cols-3 gap-3 text-center">
-                            <div class="bg-blue-50 rounded-xl py-4">
-                                <p class="text-lg sm:text-2xl font-bold text-primary">20+</p>
-                                <p class="text-xs text-gray-600 mt-1">Years of Experience</p>
-                            </div>
-                            <div class="bg-blue-50 rounded-xl py-4">
-                                <p class="text-lg sm:text-2xl font-bold text-primary">20,000+</p>
-                                <p class="text-xs text-gray-600 mt-1">Patients Treated</p>
-                            </div>
-                            <div class="bg-blue-50 rounded-xl py-4">
-                                <p class="text-lg sm:text-2xl font-bold text-primary">10,000+</p>
-                                <p class="text-xs text-gray-600 mt-1">Laparoscopic Surgeries</p>
-                            </div>
-                        </div>
-
-                        <!-- Education -->
-                        <div>
-                            <h4 class="text-primary font-bold mb-3 flex items-center">
-                                <i class="fas fa-graduation-cap text-accent mr-3"></i>Education &amp; Fellowships
-                            </h4>
-                            <ul class="space-y-2 text-gray-700">
-                                <li class="flex items-start">
-                                    <i class="fas fa-angle-right text-accent mr-3 mt-1.5"></i>
-                                    <span>MS, General Surgery — VMMC &amp; Safdarjung Hospital, New Delhi</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-angle-right text-accent mr-3 mt-1.5"></i>
-                                    <span>MBBS — VMMC &amp; Safdarjung Hospital, New Delhi</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-angle-right text-accent mr-3 mt-1.5"></i>
-                                    <span>Senior Resident — VMMC &amp; Safdarjung Hospital, New Delhi</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-angle-right text-accent mr-3 mt-1.5"></i>
-                                    <span>FIAGES — Indian Association of Gastrointestinal Endo Surgeons</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-angle-right text-accent mr-3 mt-1.5"></i>
-                                    <span>FMAS — Fellowship in Minimal Access Surgery</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-angle-right text-accent mr-3 mt-1.5"></i>
-                                    <span>FALS (Robotics) &amp; MCLS — International College of Laparoscopic
-                                        Surgeons</span>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <!-- Expertise -->
-                        <div>
-                            <h4 class="text-primary font-bold mb-3 flex items-center">
-                                <i class="fas fa-user-doctor text-accent mr-3"></i>Areas of Special Expertise
-                            </h4>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="bg-blue-50 text-primary text-sm px-3 py-1.5 rounded-full">Bariatric
-                                    (Weight-Loss) Surgery</span>
-                                <span class="bg-blue-50 text-primary text-sm px-3 py-1.5 rounded-full">Laparoscopic
-                                    Cholecystectomy</span>
-                                <span class="bg-blue-50 text-primary text-sm px-3 py-1.5 rounded-full">Hernia Repair —
-                                    TAPP, TEP, IPOM Plus</span>
-                                <span class="bg-blue-50 text-primary text-sm px-3 py-1.5 rounded-full">Laser Treatment
-                                    for Piles, Fissure &amp; Fistula</span>
-                                <span class="bg-blue-50 text-primary text-sm px-3 py-1.5 rounded-full">Laser Varicose
-                                    Vein &amp; Venaseal</span>
-                                <span class="bg-blue-50 text-primary text-sm px-3 py-1.5 rounded-full">GI &amp;
-                                    Colorectal Cancer Surgery</span>
-                                <span class="bg-blue-50 text-primary text-sm px-3 py-1.5 rounded-full">Laparoscopic
-                                    Gynae — TLH &amp; Myomectomy</span>
-                                <span class="bg-blue-50 text-primary text-sm px-3 py-1.5 rounded-full">Emergency &amp;
-                                    Trauma Surgery</span>
-                            </div>
-                        </div>
-
-                        <!-- Hospitals -->
-                        <div>
-                            <h4 class="text-primary font-bold mb-3 flex items-center">
-                                <i class="fas fa-hospital text-accent mr-3"></i>Consultant &amp; Visiting Roles
-                            </h4>
-                            <p class="text-gray-700 leading-relaxed">
-                                Senior Consultant, Department of Surgical Sciences, <strong>Delhi Surgical
-                                    Centre</strong>. Visiting consultant and faculty at <strong>Max Saket</strong>,
-                                <strong>Max Panchsheel</strong>, <strong>Max Patparganj</strong>, <strong>Sir Ganga
-                                    Ram</strong>, <strong>Apollo</strong>, <strong>Fortis Vasant Kunj</strong>,
-                                <strong>SAMA Hospital</strong> (Siri Fort Road), <strong>Irene Hospital</strong>
-                                (Kalkaji) and <strong>Oncoplus Hospital</strong> (Defence Colony).
-                            </p>
-                        </div>
-
-                        <!-- Memberships -->
-                        <div>
-                            <h4 class="text-primary font-bold mb-3 flex items-center">
-                                <i class="fas fa-id-badge text-accent mr-3"></i>Professional Memberships
-                            </h4>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1.5 rounded-full">Delhi Medical
-                                    Council (DMC)</span>
-                                <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1.5 rounded-full">Association of
-                                    Surgeons of India (ASI)</span>
-                                <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1.5 rounded-full">AMASI</span>
-                                <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1.5 rounded-full">IAGES</span>
-                                <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1.5 rounded-full">Indian Medical
-                                    Association (IMA)</span>
-                                <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1.5 rounded-full">Indian Hernia
-                                    Society (IHS)</span>
-                                <span class="bg-gray-100 text-gray-700 text-sm px-3 py-1.5 rounded-full">SELSI</span>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Circle of Care Section -->
-    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 to-blue-50">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16 scroll-reveal">
-                <h2 class="text-4xl sm:text-5xl font-bold text-primary mb-4">Our Holistic Commitment</h2>
-                <p class="text-xl text-gray-700">A Lifetime of Care: From the Girl Child to the Golden Years</p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8 scroll-reveal-stagger">
-                <!-- Girl Child -->
-                <div
-                    class="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition duration-300 hover:-translate-y-2 transform">
-                    <div class="text-center mb-6">
-                        <div class="bg-pink-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-child text-4xl text-pink-600"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-primary">Nurturing the Girl Child</h3>
-                        <p class="text-gray-600 mt-2">Adolescence & Puberty</p>
-                    </div>
-                    <ul class="space-y-3 text-gray-700">
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
-                            <span><strong>Menstrual Dignity:</strong> Breaking taboos and providing eco-friendly hygiene
-                                kits</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
-                            <span><strong>Anemia Prevention:</strong> Nutrition counseling and health monitoring</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
-                            <span><strong>PCOS Awareness:</strong> Early detection and lifestyle guidance</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
-                            <span><strong>HPV Vaccination:</strong> Protecting the future generation</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Women -->
-                <div
-                    class="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition duration-300 hover:-translate-y-2 transform">
-                    <div class="text-center mb-6">
-                        <div class="bg-purple-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-female text-4xl text-purple-600"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-primary">Supporting the Woman</h3>
-                        <p class="text-gray-600 mt-2">Reproductive Years</p>
-                    </div>
-                    <ul class="space-y-3 text-gray-700">
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
-                            <span><strong>Safe Motherhood:</strong> Pre-natal and post-partum care</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
-                            <span><strong>Fertility Support:</strong> Subsidized IVF/IUI treatments</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
-                            <span><strong>Intimate Hygiene:</strong> UTI prevention education</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
-                            <span><strong>Mental Wellness:</strong> Counseling and emotional support</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Senior Women -->
-                <div
-                    class="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition duration-300 hover:-translate-y-2 transform">
-                    <div class="text-center mb-6">
-                        <div class="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-user-friends text-4xl text-blue-600"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-primary">Honoring the Matriarch</h3>
-                        <p class="text-gray-600 mt-2">Menopause & Senior Care</p>
-                    </div>
-                    <ul class="space-y-3 text-gray-700">
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
-                            <span><strong>Bone Health:</strong> Osteoporosis screening and prevention</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
-                            <span><strong>Menopause Management:</strong> Hormonal counseling</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
-                            <span><strong>Cancer Screening:</strong> Breast and cervical cancer detection</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
-                            <span><strong>Aging with Grace:</strong> Comprehensive senior health support</span>
-                        </li>
-                    </ul>
+                        <figcaption>Dr. Deepika Singh, Founder — Ridhima Foundation</figcaption>
+                    </figure>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Programs Section -->
-    <section id="programs" class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16 scroll-reveal">
-                <h2 class="text-4xl sm:text-5xl font-bold text-primary mb-4">Core Impact Programs</h2>
-                <p class="text-xl text-gray-700">Comprehensive healthcare solutions tailored for women</p>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 scroll-reveal-stagger">
-                <!-- Program 1 -->
-                <div
-                    class="bg-gradient-to-br from-white to-pink-50 rounded-2xl shadow-lg p-8 hover:shadow-2xl transition duration-300 border border-pink-100">
-                    <div class="bg-pink-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
-                        <i class="fas fa-hospital text-3xl text-pink-600"></i>
+        <!-- Circle of Care -->
+        <section class="section" style="padding-top:0">
+            <div class="wrap">
+                <div class="section-head split reveal">
+                    <div>
+                        <span class="eyebrow">02 — Our holistic commitment</span>
+                        <h2 style="margin-top:20px">A lifetime of care, from the girl child to the <span
+                                class="serif">golden years.</span></h2>
                     </div>
-                    <h3 class="text-2xl font-bold text-primary mb-3">🌷 Project Ridhima Outreach</h3>
-                    <p class="text-gray-700 leading-relaxed">
-                        Bringing top-tier gynecology and fertility consultations to the doorsteps of urban slums and
-                        rural belts. We go where the hospitals can't reach.
-                    </p>
+                    <p class="lede">We don't just treat symptoms — we nurture lives through a Circle of Care that
+                        follows a woman through every stage of life.</p>
                 </div>
 
-                <!-- Program 2 -->
-                <div
-                    class="bg-gradient-to-br from-white to-purple-50 rounded-2xl shadow-lg p-8 hover:shadow-2xl transition duration-300 border border-purple-100">
-                    <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
-                        <i class="fas fa-baby text-3xl text-purple-600"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-primary mb-3">🌸 Hope for Motherhood</h3>
-                    <p class="text-gray-700 leading-relaxed">
-                        Financial status should not dictate fertility. We provide subsidized IVF, IUI, scans, and
-                        medicines for couples battling infertility and financial stress.
-                    </p>
-                </div>
-
-                <!-- Program 3 -->
-                <div
-                    class="bg-gradient-to-br from-white to-yellow-50 rounded-2xl shadow-lg p-8 hover:shadow-2xl transition duration-300 border border-yellow-100">
-                    <div class="bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
-                        <i class="fas fa-graduation-cap text-3xl text-yellow-600"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-primary mb-3">🌼 Kishori Shakti</h3>
-                    <p class="text-gray-700 leading-relaxed">
-                        A school-based program focusing on menstrual hygiene, anemia screening, and nutrition counseling
-                        to build a generation of strong girls.
-                    </p>
-                </div>
-
-                <!-- Program 4 -->
-                <div
-                    class="bg-gradient-to-br from-white to-rose-50 rounded-2xl shadow-lg p-8 hover:shadow-2xl transition duration-300 border border-rose-100">
-                    <div class="bg-rose-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
-                        <i class="fas fa-ribbon text-3xl text-rose-600"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-primary mb-3">🎗 The Pink Shield</h3>
-                    <p class="text-gray-700 leading-relaxed">
-                        Free mammograms, pap smears, and vaccination drives. We fight cancer through awareness and early
-                        detection.
-                    </p>
-                </div>
-
-                <!-- Program 5 -->
-                <div
-                    class="bg-gradient-to-br from-white to-blue-50 rounded-2xl shadow-lg p-8 hover:shadow-2xl transition duration-300 border border-blue-100">
-                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
-                        <i class="fas fa-brain text-3xl text-blue-600"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-primary mb-3">🌺 Inner Healing</h3>
-                    <p class="text-gray-700 leading-relaxed">
-                        Health is not just physical. We offer counseling for marital stress, infertility trauma,
-                        postpartum depression, and anxiety.
-                    </p>
-                </div>
-
-                <!-- Program 6 -->
-                <div
-                    class="bg-gradient-to-br from-white to-indigo-50 rounded-2xl shadow-lg p-8 hover:shadow-2xl transition duration-300 border border-indigo-100">
-                    <div class="bg-indigo-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
-                        <i class="fas fa-heart text-3xl text-indigo-600"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-primary mb-3">🌹 Graceful Aging</h3>
-                    <p class="text-gray-700 leading-relaxed">
-                        Dedicated clinics for bone density tests, hormonal counseling, and lifestyle guidance for women
-                        entering their second innings.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Free Online Workshops Section -->
-    <section id="workshops" class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16 scroll-reveal">
-                <h2 class="text-4xl sm:text-5xl font-bold text-primary mb-4">Free Online Workshops</h2>
-                <p class="text-xl text-gray-700 max-w-3xl mx-auto">Learn from home with our free health education
-                    workshops on YouTube — Live sessions and recorded videos available anytime</p>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-8 mb-12">
-                <!-- Live Workshops -->
-                <div
-                    class="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition duration-300 border-l-4 border-red-500">
-                    <div class="flex items-center mb-6">
-                        <div class="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mr-4">
-                            <i class="fab fa-youtube text-3xl text-red-600"></i>
+                <div class="care-grid reveal">
+                    <article class="care-card">
+                        <div class="care-top"><span class="care-index">I / III</span>
+                            <span class="care-chip" aria-hidden="true"></span>
                         </div>
                         <div>
-                            <h3 class="text-2xl font-bold text-primary">Live Workshops</h3>
-                            <p class="text-gray-600">Interactive sessions with Dr. Deepika Singh</p>
+                            <h3>Nurturing the Girl Child</h3>
+                            <p class="stage">Adolescence &amp; puberty</p>
                         </div>
-                    </div>
-                    <ul class="space-y-3 text-gray-700 mb-6">
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-red-500 mr-3 mt-1"></i>
-                            <span>Ask questions directly during live Q&A sessions</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-red-500 mr-3 mt-1"></i>
-                            <span>Menstrual hygiene workshops for schools and communities</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-red-500 mr-3 mt-1"></i>
-                            <span>Maternal health guidance for expecting mothers</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-red-500 mr-3 mt-1"></i>
-                            <span>PCOS and fertility awareness sessions</span>
-                        </li>
-                    </ul>
-                    <p class="text-sm text-gray-500 italic">
-                        <i class="fas fa-bell mr-2"></i>Subscribe to our YouTube channel for live session notifications
-                    </p>
-                </div>
+                        <ul class="ticks">
+                            <li><strong>Menstrual Dignity</strong>Breaking taboos and providing eco-friendly hygiene
+                                kits</li>
+                            <li><strong>Anemia Prevention</strong>Nutrition counseling and health monitoring</li>
+                            <li><strong>PCOS Awareness</strong>Early detection and lifestyle guidance</li>
+                            <li><strong>HPV Vaccination</strong>Protecting the future generation</li>
+                        </ul>
+                    </article>
 
-                <!-- Video Library -->
-                <div
-                    class="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition duration-300 border-l-4 border-orange-500">
-                    <div class="flex items-center mb-6">
-                        <div class="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mr-4">
-                            <i class="fas fa-video text-3xl text-orange-600"></i>
+                    <article class="care-card">
+                        <div class="care-top"><span class="care-index">II / III</span>
+                            <span class="care-chip" aria-hidden="true"></span>
                         </div>
                         <div>
-                            <h3 class="text-2xl font-bold text-primary">Video Library</h3>
-                            <p class="text-gray-600">Watch anytime, anywhere — completely free</p>
+                            <h3>Supporting the Woman</h3>
+                            <p class="stage">Reproductive years</p>
                         </div>
-                    </div>
-                    <ul class="space-y-3 text-gray-700 mb-6">
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-orange-500 mr-3 mt-1"></i>
-                            <span>Understanding your menstrual cycle</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-orange-500 mr-3 mt-1"></i>
-                            <span>Breast cancer self-examination tutorial</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-orange-500 mr-3 mt-1"></i>
-                            <span>Menopause management and healthy aging</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-orange-500 mr-3 mt-1"></i>
-                            <span>Nutrition tips for women's health</span>
-                        </li>
-                    </ul>
-                    <p class="text-sm text-gray-500 italic">
-                        <i class="fas fa-language mr-2"></i>Videos available in Hindi and English
-                    </p>
+                        <ul class="ticks">
+                            <li><strong>Safe Motherhood</strong>Pre-natal and post-partum care</li>
+                            <li><strong>Fertility Support</strong>Subsidized IVF/IUI treatments</li>
+                            <li><strong>Intimate Hygiene</strong>UTI prevention education</li>
+                            <li><strong>Mental Wellness</strong>Counseling and emotional support</li>
+                        </ul>
+                    </article>
+
+                    <article class="care-card">
+                        <div class="care-top"><span class="care-index">III / III</span>
+                            <span class="care-chip" aria-hidden="true"></span>
+                        </div>
+                        <div>
+                            <h3>Honoring the Matriarch</h3>
+                            <p class="stage">Menopause &amp; senior care</p>
+                        </div>
+                        <ul class="ticks">
+                            <li><strong>Bone Health</strong>Osteoporosis screening and prevention</li>
+                            <li><strong>Menopause Management</strong>Hormonal counseling</li>
+                            <li><strong>Cancer Screening</strong>Breast and cervical cancer detection</li>
+                            <li><strong>Aging with Grace</strong>Comprehensive senior health support</li>
+                        </ul>
+                    </article>
                 </div>
             </div>
+        </section>
 
-            <!-- Medical Review Notice (E-E-A-T) -->
-            <div class="bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-gray-200 text-center">
-                <p class="text-gray-600">
-                    <i class="fas fa-user-md text-accent mr-2"></i>
-                    <strong>All content reviewed by Dr. Deepika Singh, MBBS, MD (Obstetrics & Gynecology)</strong>
-                    <br>
-                    <span class="text-sm">Our workshops follow evidence-based medical guidelines and are designed for
-                        educational purposes. Always consult a healthcare professional for personalized medical
-                        advice.</span>
+        <!-- Programs -->
+        <section id="programs" class="section programs">
+            <div class="wrap">
+                <div class="section-head split reveal">
+                    <div>
+                        <span class="eyebrow">03 — Core impact programs</span>
+                        <h2 style="margin-top:20px">Six programs. <span class="serif">One promise.</span></h2>
+                    </div>
+                    <p class="lede">Comprehensive healthcare solutions tailored for women — delivered where they are
+                        needed most.</p>
+                </div>
+
+                <div class="program-grid reveal">
+                    <article class="program">
+                        <span class="program-num">P/01</span>
+                        <div>
+                            <h3>Project Ridhima Outreach</h3>
+                            <p>Bringing top-tier gynecology and fertility consultations to the doorsteps of urban slums
+                                and rural belts. We go where the hospitals can't reach.</p>
+                            <span class="program-tag">OPD camps</span>
+                        </div>
+                    </article>
+                    <article class="program">
+                        <span class="program-num">P/02</span>
+                        <div>
+                            <h3>Hope for Motherhood</h3>
+                            <p>Financial status should not dictate fertility. We provide subsidized IVF, IUI, scans, and
+                                medicines for couples battling infertility and financial stress.</p>
+                            <span class="program-tag">Fertility</span>
+                        </div>
+                    </article>
+                    <article class="program">
+                        <span class="program-num">P/03</span>
+                        <div>
+                            <h3>Kishori Shakti</h3>
+                            <p>A school-based program focusing on menstrual hygiene, anemia screening, and nutrition
+                                counseling to build a generation of strong girls.</p>
+                            <span class="program-tag">Adolescent health</span>
+                        </div>
+                    </article>
+                    <article class="program">
+                        <span class="program-num">P/04</span>
+                        <div>
+                            <h3>The Pink Shield</h3>
+                            <p>Free mammograms, pap smears, and vaccination drives. We fight cancer through awareness
+                                and early detection.</p>
+                            <span class="program-tag">Cancer defense</span>
+                        </div>
+                    </article>
+                    <article class="program">
+                        <span class="program-num">P/05</span>
+                        <div>
+                            <h3>Inner Healing</h3>
+                            <p>Health is not just physical. We offer counseling for marital stress, infertility trauma,
+                                postpartum depression, and anxiety.</p>
+                            <span class="program-tag">Mental wellness</span>
+                        </div>
+                    </article>
+                    <article class="program">
+                        <span class="program-num">P/06</span>
+                        <div>
+                            <h3>Graceful Aging</h3>
+                            <p>Dedicated clinics for bone density tests, hormonal counseling, and lifestyle guidance for
+                                women entering their second innings.</p>
+                            <span class="program-tag">Menopause care</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Medical Camps -->
+        <section id="medical-camp" class="section on-dark panel">
+            <div class="wrap">
+                <div class="section-head split reveal">
+                    <div>
+                        <span class="eyebrow">04 — Free medical camps</span>
+                        <h2 style="margin-top:20px">Quality healthcare, <span class="serif">at your doorstep.</span>
+                        </h2>
+                    </div>
+                    <p class="lede">Because no woman should be left behind.</p>
+                </div>
+
+                <div class="camp-hero reveal">
+                    <img src="MedicalCamp/IMG_0355.jpg" alt="Medical camp in action — doctors distributing medicines"
+                        loading="lazy" decoding="async">
+                    <span class="shape shape-arc" aria-hidden="true"></span>
+                    <div class="camp-hero-copy">
+                        <h3>Healthcare for all</h3>
+                        <p>Our free medical camps provide essential healthcare services to underserved communities,
+                            ensuring every woman receives the care she deserves.</p>
+                    </div>
+                </div>
+
+                <div class="benefits reveal">
+                    <div class="benefit">
+                        <span class="ico"><svg aria-hidden="true"><use href="#i-steth" /></svg></span>
+                        <h4>Free Consultations</h4>
+                        <p>Expert gynecological consultations by experienced doctors at no cost</p>
+                    </div>
+                    <div class="benefit">
+                        <span class="ico"><svg aria-hidden="true"><use href="#i-pill" /></svg></span>
+                        <h4>Free Medicines</h4>
+                        <p>Essential medications distributed to all patients completely free of charge</p>
+                    </div>
+                    <div class="benefit">
+                        <span class="ico"><svg aria-hidden="true"><use href="#i-scope" /></svg></span>
+                        <h4>Health Screenings</h4>
+                        <p>Comprehensive screenings for early detection of health issues</p>
+                    </div>
+                    <div class="benefit">
+                        <span class="ico"><svg aria-hidden="true"><use href="#i-pulse" /></svg></span>
+                        <h4>Follow-up Care</h4>
+                        <p>Continued support and follow-up for patients who need ongoing care</p>
+                    </div>
+                </div>
+
+                <div class="camp-strip reveal">
+                    <button type="button" data-lightbox data-group="camp"><img src="MedicalCamp/IMG_0356.jpg"
+                            alt="Camp activity" loading="lazy" decoding="async"></button>
+                    <button type="button" data-lightbox data-group="camp"><img src="MedicalCamp/IMG_0357.jpg"
+                            alt="Patient care" loading="lazy" decoding="async"></button>
+                    <button type="button" data-lightbox data-group="camp"><img src="MedicalCamp/IMG_0358.jpg"
+                            alt="Medical team" loading="lazy" decoding="async"></button>
+                    <button type="button" data-lightbox data-group="camp"><img src="MedicalCamp/IMG_0365.jpg"
+                            alt="Community outreach" loading="lazy" decoding="async"></button>
+                </div>
+
+                <div class="commit reveal">
+                    <div>
+                        <h3>Our commitment <span class="serif">to you.</span></h3>
+                        <ol class="commit-list">
+                            <li><span><strong>100% Free Services</strong> — No hidden charges, ever. Every service is
+                                    completely free.</span></li>
+                            <li><span><strong>Quality Care</strong> — Same quality treatment as premium hospitals,
+                                    accessible to all.</span></li>
+                            <li><span><strong>Dignity First</strong> — We treat every patient with respect and
+                                    compassion.</span></li>
+                            <li><span><strong>Community Focused</strong> — We go where hospitals can't, reaching the
+                                    most underserved.</span></li>
+                        </ol>
+                    </div>
+                    <div class="commit-photos">
+                        <button type="button" data-lightbox data-group="camp"><img src="MedicalCamp/IMG_0366.jpg"
+                                alt="Camp activity" loading="lazy" decoding="async"></button>
+                        <button type="button" data-lightbox data-group="camp"><img src="MedicalCamp/IMG_0367.jpg"
+                                alt="Patient care" loading="lazy" decoding="async"></button>
+                        <button type="button" data-lightbox data-group="camp"><img src="MedicalCamp/IMG_0371.jpg"
+                                alt="Medical team" loading="lazy" decoding="async"></button>
+                        <button type="button" data-lightbox data-group="camp"><img src="MedicalCamp/IMG_0372.jpg"
+                                alt="Helping hands" loading="lazy" decoding="async"></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Founder's Message -->
+        <section class="message panel" aria-labelledby="message-title">
+            <span class="shape msg-circle-a" aria-hidden="true"></span>
+            <span class="shape msg-circle-b" aria-hidden="true"></span>
+            <div class="wrap">
+                <span class="eyebrow" id="message-title">Founder's message</span>
+                <blockquote>
+                    In my years of practice, I have seen women endure unimaginable pain <span
+                        class="serif">silently.</span>&rdquo;
+                </blockquote>
+                <p class="quote-rest">Sacrificing their health to save money for their children, their husbands, or
+                    their households. I have seen women ashamed to ask for help. <strong>Ridhima Foundation is my
+                        promise to them.</strong> It is a promise that you are not alone. It is a promise that your pain
+                    matters. We are here to hold your hand, heal your body, and restore your dignity.</p>
+                <cite>
+                    <img src="Dr.Deepika/DrDeepikaSingh.jpg" alt="" loading="lazy" decoding="async">
+                    <span><b>Dr. Deepika Singh</b>Founder, Ridhima Foundation</span>
+                </cite>
+            </div>
+        </section>
+
+        <!-- Founders -->
+        <section id="founders" class="section">
+            <div class="wrap">
+                <div class="section-head split reveal">
+                    <div>
+                        <span class="eyebrow">05 — Our founders</span>
+                        <h2 style="margin-top:20px">Two doctors, <span class="serif">one promise.</span></h2>
+                    </div>
+                    <p class="lede">That quality care should never depend on what a family can afford.</p>
+                </div>
+
+                <div class="founders-grid">
+
+                    <!-- Dr. Deepika Singh -->
+                    <article class="founder reveal">
+                        <div class="founder-photo">
+                            <img src="Dr.Deepika/DrDeepikaSingh.jpg"
+                                alt="Dr. Deepika Singh, MBBS, MD (AIIMS) - Founder of Ridhima Foundation"
+                                loading="lazy" decoding="async">
+                            <span class="founder-role">Founder</span>
+                        </div>
+                        <div>
+                            <h3>Dr. Deepika Singh</h3>
+                            <p class="creds">MBBS, MD (AIIMS New Delhi) · MCCG, Germany</p>
+                            <p class="speciality">Obstetrician &amp; Gynaecologist</p>
+                        </div>
+                        <p class="bio">An obstetrician and gynaecologist trained at AIIMS New Delhi, Dr. Deepika Singh
+                            has spent her career caring for women through pregnancy, fertility, surgery and menopause.
+                            Ridhima Foundation grew out of what she saw in her own practice — women delaying treatment
+                            they could not afford, and suffering in silence for want of someone to ask.</p>
+                        <blockquote>&ldquo;We believe that good health is much more than just being disease-free — and hence,
+                            rather than just treating the disease, we focus on healing the person.&rdquo;</blockquote>
+
+                        <div class="facts">
+                            <details>
+                                <summary>Education</summary>
+                                <div class="body">
+                                    <ul>
+                                        <li>MD, Obstetrics &amp; Gynaecology — AIIMS, New Delhi</li>
+                                        <li>MBBS — BRD Medical College</li>
+                                        <li>Senior Resident — AIIMS, New Delhi</li>
+                                        <li>MCCG — Germany</li>
+                                    </ul>
+                                </div>
+                            </details>
+                            <details>
+                                <summary>Areas of special interest</summary>
+                                <div class="body tags">
+                                    <span>High-Risk Pregnancy &amp; Delivery</span>
+                                    <span>Gynae Laparoscopic Surgery</span>
+                                    <span>Diagnostic Laparoscopy &amp; Hysteroscopy</span>
+                                    <span>Ovarian Cystectomy &amp; Salpingectomy</span>
+                                    <span>Gynae Oncology</span>
+                                    <span>Obstetric &amp; Gynaecologic Ultrasound</span>
+                                    <span>Family Planning</span>
+                                    <span>IVF &amp; Fertility</span>
+                                </div>
+                            </details>
+                            <details>
+                                <summary>Consultant &amp; visiting roles</summary>
+                                <div class="body">
+                                    <p>Attending Consultant at <strong>Max Saket</strong> and <strong>Max
+                                            Panchsheel</strong>; visiting consultant at <strong>Cloudnine
+                                            Hospital</strong>, <strong>SAMA Hospital</strong> (Siri Fort Road),
+                                        <strong>Irene Hospital</strong> (Kalkaji) and <strong>Oncoplus
+                                            Hospital</strong> (Defence Colony).</p>
+                                </div>
+                            </details>
+                            <details>
+                                <summary>Papers &amp; publications</summary>
+                                <div class="body">
+                                    <ul class="pubs">
+                                        <li><span>Assessment of Lower Segment Caesarean Scar by Transvaginal
+                                                Ultrasound and MRI</span> (thesis paper) — Deepika, Kumar S, Sharma R,
+                                            Roy KK, Sharma JB, Singh N. <em>Ann. Int. Med. Den. Res.</em> 2019;5(4).
+                                        </li>
+                                        <li><span>Cervicovesical Fistula — A Rare Case Report in a 24-Year-Old Woman
+                                                with Secondary Amenorrhoea</span> — Deepika, Deka D, Dadhwal V.
+                                            <em>Asian Journal of Medical Research</em>, 2019.</li>
+                                        <li><span>Congenital Absence of the Cervix — Its Place in the Present
+                                                Classification of Female Genital Tract Malformation</span> — Deepika,
+                                            Deka D, Dadhwal V, Malhotra N, Sharma A. <em>Ann. Int. Med. Den. Res.</em>
+                                            2019;5(4).</li>
+                                    </ul>
+                                </div>
+                            </details>
+                            <details>
+                                <summary>Professional memberships</summary>
+                                <div class="body tags">
+                                    <span>AOGD</span>
+                                    <span>Indian Fertility Society</span>
+                                    <span>Society of Fetal Medicine</span>
+                                </div>
+                            </details>
+                        </div>
+                    </article>
+
+                    <!-- Dr. Raj Kumar Singh -->
+                    <article class="founder reveal">
+                        <div class="founder-photo">
+                            <img src="Dr.Raj/DrRajKumarSingh.jpg"
+                                alt="Dr. Raj Kumar Singh, MBBS, MS, FIAGES, FMAS - Co-Founder of Ridhima Foundation"
+                                loading="lazy" decoding="async">
+                            <span class="founder-role">Co-Founder</span>
+                        </div>
+                        <div>
+                            <h3>Dr. Raj Kumar Singh</h3>
+                            <p class="creds">MBBS, MS (Gen. Surgery) · FIAGES, FMAS, MCLS, FALS (Robotics)</p>
+                            <p class="speciality">Bariatric, Laparoscopic &amp; Laser Surgeon</p>
+                        </div>
+                        <p class="bio">A senior surgeon practising in Delhi for over 20 years, Dr. Raj Kumar Singh
+                            specialises in gastrointestinal, colorectal and minimal access (laparoscopic) surgery,
+                            including bariatric weight-loss surgery. He is Senior Consultant in the Department of
+                            Surgical Sciences at Delhi Surgical Centre, New Delhi.</p>
+
+                        <div class="mini-stats">
+                            <div><b>20+</b><span>Years of experience</span></div>
+                            <div><b>20,000+</b><span>Patients treated</span></div>
+                            <div><b>10,000+</b><span>Laparoscopic surgeries</span></div>
+                        </div>
+
+                        <div class="facts">
+                            <details>
+                                <summary>Education &amp; fellowships</summary>
+                                <div class="body">
+                                    <ul>
+                                        <li>MS, General Surgery — VMMC &amp; Safdarjung Hospital, New Delhi</li>
+                                        <li>MBBS — VMMC &amp; Safdarjung Hospital, New Delhi</li>
+                                        <li>Senior Resident — VMMC &amp; Safdarjung Hospital, New Delhi</li>
+                                        <li>FIAGES — Indian Association of Gastrointestinal Endo Surgeons</li>
+                                        <li>FMAS — Fellowship in Minimal Access Surgery</li>
+                                        <li>FALS (Robotics) &amp; MCLS — International College of Laparoscopic
+                                            Surgeons</li>
+                                    </ul>
+                                </div>
+                            </details>
+                            <details>
+                                <summary>Areas of special expertise</summary>
+                                <div class="body tags">
+                                    <span>Bariatric (Weight-Loss) Surgery</span>
+                                    <span>Laparoscopic Cholecystectomy</span>
+                                    <span>Hernia Repair — TAPP, TEP, IPOM Plus</span>
+                                    <span>Laser Treatment for Piles, Fissure &amp; Fistula</span>
+                                    <span>Laser Varicose Vein &amp; Venaseal</span>
+                                    <span>GI &amp; Colorectal Cancer Surgery</span>
+                                    <span>Laparoscopic Gynae — TLH &amp; Myomectomy</span>
+                                    <span>Emergency &amp; Trauma Surgery</span>
+                                </div>
+                            </details>
+                            <details>
+                                <summary>Consultant &amp; visiting roles</summary>
+                                <div class="body">
+                                    <p>Senior Consultant, Department of Surgical Sciences, <strong>Delhi Surgical
+                                            Centre</strong>. Visiting consultant and faculty at <strong>Max
+                                            Saket</strong>, <strong>Max Panchsheel</strong>, <strong>Max
+                                            Patparganj</strong>, <strong>Sir Ganga Ram</strong>,
+                                        <strong>Apollo</strong>, <strong>Fortis Vasant Kunj</strong>, <strong>SAMA
+                                            Hospital</strong> (Siri Fort Road), <strong>Irene Hospital</strong>
+                                        (Kalkaji) and <strong>Oncoplus Hospital</strong> (Defence Colony).</p>
+                                </div>
+                            </details>
+                            <details>
+                                <summary>Professional memberships</summary>
+                                <div class="body tags">
+                                    <span>Delhi Medical Council (DMC)</span>
+                                    <span>Association of Surgeons of India (ASI)</span>
+                                    <span>AMASI</span>
+                                    <span>IAGES</span>
+                                    <span>Indian Medical Association (IMA)</span>
+                                    <span>Indian Hernia Society (IHS)</span>
+                                    <span>SELSI</span>
+                                </div>
+                            </details>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Workshops -->
+        <section id="workshops" class="section workshops">
+            <div class="wrap">
+                <div class="section-head split reveal">
+                    <div>
+                        <span class="eyebrow">06 — Free online workshops</span>
+                        <h2 style="margin-top:20px">Learn from home, <span class="serif">for free.</span></h2>
+                    </div>
+                    <p class="lede">Free health education workshops on YouTube — live sessions and recorded videos
+                        available anytime.</p>
+                </div>
+
+                <div class="workshop-grid reveal">
+                    <article class="workshop">
+                        <div class="workshop-head">
+                            <span class="workshop-icon" style="background:var(--rose)"><svg aria-hidden="true">
+                                    <use href="#i-live" />
+                                </svg></span>
+                            <div>
+                                <h3>Live Workshops</h3>
+                                <p>Interactive sessions with Dr. Deepika Singh</p>
+                            </div>
+                        </div>
+                        <ul class="ticks">
+                            <li>Ask questions directly during live Q&amp;A sessions</li>
+                            <li>Menstrual hygiene workshops for schools and communities</li>
+                            <li>Maternal health guidance for expecting mothers</li>
+                            <li>PCOS and fertility awareness sessions</li>
+                        </ul>
+                        <p class="note">→ Subscribe to our YouTube channel for live session notifications</p>
+                    </article>
+
+                    <article class="workshop">
+                        <div class="workshop-head">
+                            <span class="workshop-icon" style="background:var(--marigold)"><svg aria-hidden="true">
+                                    <use href="#i-library" />
+                                </svg></span>
+                            <div>
+                                <h3>Video Library</h3>
+                                <p>Watch anytime, anywhere — completely free</p>
+                            </div>
+                        </div>
+                        <ul class="ticks">
+                            <li>Understanding your menstrual cycle</li>
+                            <li>Breast cancer self-examination tutorial</li>
+                            <li>Menopause management and healthy aging</li>
+                            <li>Nutrition tips for women's health</li>
+                        </ul>
+                        <p class="note">→ Videos available in Hindi and English</p>
+                    </article>
+                </div>
+
+                <div style="margin-top:24px" class="reveal">
+                    <a href="https://youtube.com/@ridhimafoundationofficial?si=cLL3S_lnHxnJZMgI" target="_blank"
+                        rel="noopener noreferrer" class="btn btn-primary">Watch on YouTube
+                        <svg aria-hidden="true"><use href="#i-arrow-ur" /></svg></a>
+                </div>
+
+                <p class="review-note">
+                    <strong>All content reviewed by Dr. Deepika Singh, MBBS, MD (Obstetrics &amp; Gynecology).</strong>
+                    Our workshops follow evidence-based medical guidelines and are designed for educational purposes.
+                    Always consult a healthcare professional for personalized medical advice.
                 </p>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Free Medical Camp Section -->
-    <section id="medical-camp"
-        class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl sm:text-5xl font-bold text-primary mb-4">Free Medical Camps</h2>
-                <p class="text-xl text-gray-700 max-w-3xl mx-auto">Bringing quality healthcare to your doorstep —
-                    because no woman should be left behind</p>
-            </div>
-
-            <!-- Hero Image Banner -->
-            <div class="relative rounded-3xl overflow-hidden shadow-2xl mb-16">
-                <img src="MedicalCamp/IMG_0355.jpg" alt="Medical Camp in Action" class="w-full h-96 object-cover">
-                <div class="absolute inset-0 bg-gradient-to-r from-primary/80 to-transparent flex items-center">
-                    <div class="p-8 sm:p-12 max-w-xl">
-                        <h3 class="text-3xl sm:text-4xl font-bold text-white mb-4">Healthcare for All</h3>
-                        <p class="text-white/90 text-lg">Our free medical camps provide essential healthcare services to
-                            underserved communities, ensuring every woman receives the care she deserves.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Benefits Grid -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-                <div class="bg-white rounded-2xl shadow-lg p-6 hover:shadow-2xl transition duration-300 text-center">
-                    <div class="bg-emerald-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-stethoscope text-3xl text-emerald-600"></i>
-                    </div>
-                    <h4 class="text-xl font-bold text-primary mb-2">Free Consultations</h4>
-                    <p class="text-gray-600">Expert gynecological consultations by experienced doctors at no cost</p>
-                </div>
-                <div class="bg-white rounded-2xl shadow-lg p-6 hover:shadow-2xl transition duration-300 text-center">
-                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-pills text-3xl text-blue-600"></i>
-                    </div>
-                    <h4 class="text-xl font-bold text-primary mb-2">Free Medicines</h4>
-                    <p class="text-gray-600">Essential medications distributed to all patients completely free of charge
-                    </p>
-                </div>
-                <div class="bg-white rounded-2xl shadow-lg p-6 hover:shadow-2xl transition duration-300 text-center">
-                    <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-microscope text-3xl text-purple-600"></i>
-                    </div>
-                    <h4 class="text-xl font-bold text-primary mb-2">Health Screenings</h4>
-                    <p class="text-gray-600">Comprehensive screenings for early detection of health issues</p>
-                </div>
-                <div class="bg-white rounded-2xl shadow-lg p-6 hover:shadow-2xl transition duration-300 text-center">
-                    <div class="bg-rose-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-heart-pulse text-3xl text-rose-600"></i>
-                    </div>
-                    <h4 class="text-xl font-bold text-primary mb-2">Follow-up Care</h4>
-                    <p class="text-gray-600">Continued support and follow-up for patients who need ongoing care</p>
-                </div>
-            </div>
-
-            <!-- Camp Images Showcase -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
-                <div class="overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300">
-                    <img src="MedicalCamp/IMG_0356.jpg" alt="Camp Activity"
-                        class="w-full h-48 object-cover hover:scale-110 transition duration-500">
-                </div>
-                <div class="overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300">
-                    <img src="MedicalCamp/IMG_0357.jpg" alt="Patient Care"
-                        class="w-full h-48 object-cover hover:scale-110 transition duration-500">
-                </div>
-                <div class="overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300">
-                    <img src="MedicalCamp/IMG_0358.jpg" alt="Medical Team"
-                        class="w-full h-48 object-cover hover:scale-110 transition duration-500">
-                </div>
-                <div class="overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300">
-                    <img src="MedicalCamp/IMG_0365.jpg" alt="Community Outreach"
-                        class="w-full h-48 object-cover hover:scale-110 transition duration-500">
-                </div>
-            </div>
-
-            <!-- Our Commitment -->
-            <div class="bg-white rounded-3xl shadow-xl p-8 sm:p-12">
-                <div class="grid md:grid-cols-2 gap-8 items-center">
+        <!-- Ways to help -->
+        <section id="get-involved" class="section" style="padding-bottom:0">
+            <div class="wrap">
+                <div class="section-head split reveal">
                     <div>
-                        <h3 class="text-3xl font-bold text-primary mb-6">Our Commitment to You</h3>
-                        <div class="space-y-4">
-                            <div class="flex items-start">
-                                <i class="fas fa-check-circle text-emerald-500 text-xl mr-4 mt-1"></i>
-                                <p class="text-gray-700"><strong>100% Free Services</strong> — No hidden charges, ever.
-                                    Every service is completely free.</p>
-                            </div>
-                            <div class="flex items-start">
-                                <i class="fas fa-check-circle text-emerald-500 text-xl mr-4 mt-1"></i>
-                                <p class="text-gray-700"><strong>Quality Care</strong> — Same quality treatment as
-                                    premium hospitals, accessible to all.</p>
-                            </div>
-                            <div class="flex items-start">
-                                <i class="fas fa-check-circle text-emerald-500 text-xl mr-4 mt-1"></i>
-                                <p class="text-gray-700"><strong>Dignity First</strong> — We treat every patient with
-                                    respect and compassion.</p>
-                            </div>
-                            <div class="flex items-start">
-                                <i class="fas fa-check-circle text-emerald-500 text-xl mr-4 mt-1"></i>
-                                <p class="text-gray-700"><strong>Community Focused</strong> — We go where hospitals
-                                    can't, reaching the most underserved.</p>
-                            </div>
-                        </div>
+                        <span class="eyebrow">Join the movement</span>
+                        <h2 style="margin-top:20px">Be the reason a woman <span class="serif">smiles today.</span></h2>
                     </div>
-                    <div class="grid grid-cols-2 gap-4">
-                        <img src="MedicalCamp/IMG_0366.jpg" alt="Camp Activity"
-                            class="rounded-xl shadow-lg w-full h-40 object-cover">
-                        <img src="MedicalCamp/IMG_0367.jpg" alt="Patient Care"
-                            class="rounded-xl shadow-lg w-full h-40 object-cover">
-                        <img src="MedicalCamp/IMG_0371.jpg" alt="Medical Team"
-                            class="rounded-xl shadow-lg w-full h-40 object-cover">
-                        <img src="MedicalCamp/IMG_0372.jpg" alt="Helping Hands"
-                            class="rounded-xl shadow-lg w-full h-40 object-cover">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Impact Stats Section -->
-    <section id="impact" class="py-20 px-4 sm:px-6 lg:px-8 bg-primary text-white">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16 scroll-reveal">
-                <h2 class="text-4xl sm:text-5xl font-bold mb-4">Our Impact</h2>
-                <p class="text-xl text-gray-300">Making a difference, one woman at a time</p>
-            </div>
-
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 scroll-reveal">
-                <div class="text-center">
-                    <div class="text-5xl sm:text-6xl font-bold text-accent mb-2 counter" data-target="5000"
-                        data-suffix="+">0</div>
-                    <div class="text-lg sm:text-xl text-gray-300">Women Empowered</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-5xl sm:text-6xl font-bold text-accent mb-2 counter" data-target="150"
-                        data-suffix="+">0</div>
-                    <div class="text-lg sm:text-xl text-gray-300">Medical Camps</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-5xl sm:text-6xl font-bold text-accent mb-2 counter" data-target="200"
-                        data-suffix="+">0</div>
-                    <div class="text-lg sm:text-xl text-gray-300">Fertility Treatments</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-5xl sm:text-6xl font-bold text-accent mb-2 counter" data-target="10"
-                        data-suffix="+">0</div>
-                    <div class="text-lg sm:text-xl text-gray-300">Years of Service</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Transparency Section -->
-    <section id="transparency" class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 to-gray-100">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16 scroll-reveal">
-                <h2 class="text-4xl sm:text-5xl font-bold text-primary mb-4">Transparency & Ethics</h2>
-                <p class="text-xl text-gray-700">We practice full financial transparency and adhere to the highest
-                    standards</p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Card 1 -->
-                <div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition duration-300">
-                    <div class="text-center">
-                        <div class="bg-green-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-certificate text-4xl text-green-600"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-primary mb-3">12A Certified</h3>
-                        <p class="text-gray-700">
-                            Registered under Section 12A of the Income Tax Act, ensuring lawful operation and tax
-                            exemption status.
-                        </p>
-                    </div>
+                    <p class="lede">Healthcare is expensive, but care doesn't have to be. Your support changes lives.</p>
                 </div>
 
-                <!-- Card 2 -->
-                <div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition duration-300">
-                    <div class="text-center">
-                        <div class="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-hand-holding-heart text-4xl text-blue-600"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-primary mb-3">80G Tax Exempt</h3>
-                        <p class="text-gray-700">
-                            Your donations are eligible for tax deductions under Section 80G, making your contribution
-                            go even further.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition duration-300">
-                    <div class="text-center">
-                        <div class="bg-purple-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-file-alt text-4xl text-purple-600"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-primary mb-3">Annual Reports</h3>
-                        <p class="text-gray-700">
-                            Complete transparency with detailed annual reports showing exactly how every rupee is
-                            utilized for patient care.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section id="gallery" class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-100 to-gray-50" x-data>
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16 scroll-reveal">
-                <h2 class="text-4xl sm:text-5xl font-bold text-primary mb-4">Our Gallery</h2>
-                <p class="text-xl text-gray-700">Moments of care, compassion, and community service</p>
-            </div>
-
-            <!-- Masonry-style Gallery Grid -->
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                <!-- Row 1 -->
-                <div class="overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 group">
-                    <img src="MedicalCamp/IMG_0373.jpg" alt="Medical Camp"
-                        class="w-full h-48 object-cover group-hover:scale-110 transition duration-500" loading="lazy">
-                </div>
-                <div
-                    class="overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 group md:col-span-2">
-                    <img src="MedicalCamp/IMG_0378.jpg" alt="Community Outreach"
-                        class="w-full h-48 object-cover group-hover:scale-110 transition duration-500" loading="lazy">
-                </div>
-                <div class="overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 group">
-                    <img src="MedicalCamp/IMG_0379.jpg" alt="Patient Care"
-                        class="w-full h-48 object-cover group-hover:scale-110 transition duration-500" loading="lazy">
-                </div>
-
-                <!-- Row 2 -->
-                <div
-                    class="overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 group md:col-span-2 lg:col-span-1">
-                    <img src="MedicalCamp/IMG_0382.jpg" alt="Health Screening"
-                        class="w-full h-48 object-cover group-hover:scale-110 transition duration-500" loading="lazy">
-                </div>
-                <div class="overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 group">
-                    <img src="MedicalCamp/IMG_0384.jpg" alt="Medical Team"
-                        class="w-full h-48 object-cover group-hover:scale-110 transition duration-500" loading="lazy">
-                </div>
-                <div class="overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 group">
-                    <img src="MedicalCamp/IMG_0385.jpg" alt="Camp Activity"
-                        class="w-full h-48 object-cover group-hover:scale-110 transition duration-500" loading="lazy">
-                </div>
-                <div class="overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 group">
-                    <img src="MedicalCamp/IMG_0386.jpg" alt="Healthcare Service"
-                        class="w-full h-48 object-cover group-hover:scale-110 transition duration-500" loading="lazy">
-                </div>
-
-                <!-- Row 3 -->
-                <div class="overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 group">
-                    <img src="MedicalCamp/IMG_0387.jpg" alt="Consultation"
-                        class="w-full h-48 object-cover group-hover:scale-110 transition duration-500" loading="lazy">
-                </div>
-                <div class="overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 group">
-                    <img src="MedicalCamp/IMG_3097.jpg" alt="Camp Scene"
-                        class="w-full h-48 object-cover group-hover:scale-110 transition duration-500" loading="lazy">
-                </div>
-                <div class="overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 group">
-                    <img src="MedicalCamp/IMG_3099.jpg" alt="Medical Support"
-                        class="w-full h-48 object-cover group-hover:scale-110 transition duration-500" loading="lazy">
-                </div>
-                <div class="overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 group">
-                    <img src="MedicalCamp/IMG_3100.jpg" alt="Patient Checkup"
-                        class="w-full h-48 object-cover group-hover:scale-110 transition duration-500" loading="lazy">
-                </div>
-
-                <!-- Row 4 -->
-                <div
-                    class="overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 group md:col-span-2">
-                    <img src="MedicalCamp/IMG_3102.jpg" alt="Camp Overview"
-                        class="w-full h-48 object-cover group-hover:scale-110 transition duration-500" loading="lazy">
-                </div>
-                <div class="overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 group">
-                    <img src="MedicalCamp/IMG_3103.jpg" alt="Healthcare Team"
-                        class="w-full h-48 object-cover group-hover:scale-110 transition duration-500" loading="lazy">
-                </div>
-                <div class="overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 group">
-                    <img src="MedicalCamp/IMG_3104.jpg" alt="Community Service"
-                        class="w-full h-48 object-cover group-hover:scale-110 transition duration-500" loading="lazy">
-                </div>
-
-                <!-- Row 5 -->
-                <div class="overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 group">
-                    <img src="MedicalCamp/IMG_3119.jpg" alt="Camp Activity"
-                        class="w-full h-48 object-cover group-hover:scale-110 transition duration-500" loading="lazy">
-                </div>
-                <div class="overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 group">
-                    <img src="MedicalCamp/IMG_3120.jpg" alt="Patient Care"
-                        class="w-full h-48 object-cover group-hover:scale-110 transition duration-500" loading="lazy">
-                </div>
-                <div class="overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 group">
-                    <img src="MedicalCamp/IMG_3121.jpg" alt="Medical Assistance"
-                        class="w-full h-48 object-cover group-hover:scale-110 transition duration-500" loading="lazy">
-                </div>
-                <div class="overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 group">
-                    <img src="MedicalCamp/IMG_3122.jpg" alt="Health Camp"
-                        class="w-full h-48 object-cover group-hover:scale-110 transition duration-500" loading="lazy">
-                </div>
-
-                <!-- Row 6 -->
-                <div class="overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 group">
-                    <img src="MedicalCamp/IMG_3154.jpg" alt="Camp Moment"
-                        class="w-full h-48 object-cover group-hover:scale-110 transition duration-500" loading="lazy">
-                </div>
-                <div class="overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 group">
-                    <img src="MedicalCamp/IMG_3155.jpg" alt="Medical Service"
-                        class="w-full h-48 object-cover group-hover:scale-110 transition duration-500" loading="lazy">
-                </div>
-                <div
-                    class="overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 group md:col-span-2 lg:col-span-1">
-                    <img src="MedicalCamp/IMG_3156.jpg" alt="Community Health"
-                        class="w-full h-48 object-cover group-hover:scale-110 transition duration-500" loading="lazy">
-                </div>
-                <div
-                    class="overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 group hidden lg:block">
-                    <img src="MedicalCamp/IMG_3157.jpg" alt="Camp Event"
-                        class="w-full h-48 object-cover group-hover:scale-110 transition duration-500" loading="lazy">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Donate Section - Hidden for now
-    <section id="donate" class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-accent to-yellow-600 text-white">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-4xl sm:text-5xl font-bold mb-6">Join the Movement</h2>
-            <p class="text-2xl mb-4 font-semibold">Be the Reason a Woman Smiles Today</p>
-            <p class="text-xl mb-10 text-white/90">
-                Healthcare is expensive, but care doesn't have to be. Your support changes lives.
-            </p>
-
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
-                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/20 transition">
-                    <i class="fas fa-syringe text-4xl mb-3"></i>
-                    <h4 class="font-bold text-lg">Sponsor a Treatment</h4>
-                    <p class="text-sm mt-2 text-white/90">Fund a fertility cycle or cancer screening</p>
-                </div>
-                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/20 transition">
-                    <i class="fas fa-clinic-medical text-4xl mb-3"></i>
-                    <h4 class="font-bold text-lg">Adopt a Camp</h4>
-                    <p class="text-sm mt-2 text-white/90">Sponsor a day-long medical camp</p>
-                </div>
-                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/20 transition">
-                    <i class="fas fa-hand-holding-medical text-4xl mb-3"></i>
-                    <h4 class="font-bold text-lg">Donate Supplies</h4>
-                    <p class="text-sm mt-2 text-white/90">Medicines, pads, supplements</p>
-                </div>
-                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/20 transition">
-                    <i class="fas fa-user-md text-4xl mb-3"></i>
-                    <h4 class="font-bold text-lg">Volunteer</h4>
-                    <p class="text-sm mt-2 text-white/90">Lend your medical skills</p>
-                </div>
-            </div>
-
-            <a href="#"
-                class="inline-block bg-white text-accent hover:bg-gray-100 px-10 py-4 rounded-full font-bold text-xl transition duration-300 shadow-2xl hover:scale-105 transform">
-                <i class="fas fa-heart mr-2"></i>Donate Now
-            </a>
-        </div>
-    </section>
-    -->
-
-    <!-- Contact Form Section -->
-    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16 scroll-reveal">
-                <h2 class="text-4xl sm:text-5xl font-bold text-primary mb-4">Get in Touch</h2>
-                <p class="text-xl text-gray-700 max-w-2xl mx-auto">Have a query, want to collaborate, or need
-                    assistance? Reach out to us and we'll get back to you shortly.</p>
-            </div>
-
-            <div class="grid lg:grid-cols-5 gap-12 items-start">
-
-                <!-- Contact Info Cards -->
-                <div class="lg:col-span-2 space-y-6 scroll-reveal-left">
-                    <a href="https://wa.me/918595954095" target="_blank"
-                        class="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition duration-300 border border-gray-100 flex items-center group">
-                        <div
-                            class="bg-gradient-to-br from-green-500 to-emerald-600 w-14 h-14 rounded-xl flex items-center justify-center mr-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                            <i class="fab fa-whatsapp text-3xl text-white"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-primary text-lg group-hover:text-green-600 transition-colors">
-                                WhatsApp Us</h4>
-                            <p class="text-gray-600 text-sm group-hover:text-gray-800">+91 8595954095</p>
-                        </div>
+                <div class="give-grid reveal">
+                    <a href="#contact" class="give" data-topic="Donation Query">
+                        <span class="ico"><svg aria-hidden="true"><use href="#i-cross" /></svg></span>
+                        <h3>Sponsor a Treatment</h3>
+                        <p>Fund a fertility cycle or a cancer screening.</p>
+                        <span class="more">Sponsor care <svg aria-hidden="true"><use href="#i-arrow" /></svg></span>
                     </a>
+                    <a href="#contact" class="give" data-topic="CSR Partnership">
+                        <span class="ico"><svg aria-hidden="true"><use href="#i-tent" /></svg></span>
+                        <h3>Adopt a Camp</h3>
+                        <p>Sponsor a day-long medical camp in a slum.</p>
+                        <span class="more">Adopt a camp <svg aria-hidden="true"><use href="#i-arrow" /></svg></span>
+                    </a>
+                    <a href="#contact" class="give" data-topic="Donation Query">
+                        <span class="ico"><svg aria-hidden="true"><use href="#i-box" /></svg></span>
+                        <h3>Donate Supplies</h3>
+                        <p>Medicines, sanitary pads, or nutritional supplements.</p>
+                        <span class="more">Give supplies <svg aria-hidden="true"><use href="#i-arrow" /></svg></span>
+                    </a>
+                    <a href="#contact" class="give" data-topic="Volunteer with Us">
+                        <span class="ico"><svg aria-hidden="true"><use href="#i-hands" /></svg></span>
+                        <h3>Volunteer</h3>
+                        <p>Are you a doctor, nurse, or counselor? Lend us your skills.</p>
+                        <span class="more">Volunteer with us <svg aria-hidden="true"><use href="#i-arrow" /></svg></span>
+                    </a>
+                </div>
+            </div>
+        </section>
 
-                    <div
-                        class="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition duration-300 border border-gray-100">
-                        <div class="flex items-center">
-                            <div
-                                class="bg-gradient-to-br from-accent to-yellow-500 w-14 h-14 rounded-xl flex items-center justify-center mr-4 shadow-lg">
-                                <i class="fas fa-envelope text-xl text-white"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-primary text-lg">Email Us</h4>
-                                <p class="text-gray-600 text-sm break-all">ridhimafoundationofficial@gmail.com</p>
-                            </div>
-                        </div>
+        <!-- Transparency -->
+        <section id="transparency" class="section">
+            <div class="wrap">
+                <div class="section-head split reveal">
+                    <div>
+                        <span class="eyebrow">07 — Transparency &amp; ethics</span>
+                        <h2 style="margin-top:20px">Every rupee, <span class="serif">accounted for.</span></h2>
                     </div>
-
-                    <div
-                        class="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition duration-300 border border-gray-100">
-                        <div class="flex items-center">
-                            <div
-                                class="bg-gradient-to-br from-accent to-yellow-500 w-14 h-14 rounded-xl flex items-center justify-center mr-4 shadow-lg">
-                                <i class="fas fa-map-marker-alt text-xl text-white"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-primary text-lg">Visit Us</h4>
-                                <p class="text-gray-600">F-11 South Extension Part 1, New Delhi</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bg-gradient-to-br from-primary to-slate-800 rounded-2xl shadow-xl p-6 text-white">
-                        <h4 class="font-bold text-lg mb-3"><i class="fas fa-clock text-accent mr-2"></i>Response Time
-                        </h4>
-                        <p class="text-gray-300 text-sm leading-relaxed">We typically respond within
-                            <strong class="text-white">24-48 hours</strong>. For urgent medical queries, please
-                            <a href="https://wa.me/918595954095" target="_blank"
-                                class="text-green-400 hover:text-green-300 font-semibold underline decoration-dotted underline-offset-4 transition-colors">text
-                                us on WhatsApp</a>.
-                        </p>
-                    </div>
+                    <p class="lede">We practice full financial transparency and adhere to the highest standards of
+                        medical ethics — every rupee donated goes directly toward patient care and camp logistics.</p>
                 </div>
 
-                <!-- Contact Form -->
-                <div class="lg:col-span-3 scroll-reveal-right">
-                    <div class="bg-white rounded-2xl shadow-xl p-8 sm:p-10 border border-gray-100" x-data="{
-                            submitted: false,
-                            submitting: false,
-                            errors: {},
-                            formData: { name: '', email: '', phone: '', subject: '', message: '' },
+                <div class="trust-grid reveal">
+                    <div class="trust">
+                        <div class="badge">12<span class="serif">A</span></div>
+                        <h3>12A Certified</h3>
+                        <p>Registered under Section 12A of the Income Tax Act, ensuring lawful operation and tax
+                            exemption status.</p>
+                    </div>
+                    <div class="trust">
+                        <div class="badge">80<span class="serif">G</span></div>
+                        <h3>80G Tax Exempt</h3>
+                        <p>Your donations are eligible for tax deductions under Section 80G, making your contribution go
+                            even further.</p>
+                    </div>
+                    <div class="trust">
+                        <div class="badge">100<span class="serif">%</span></div>
+                        <h3>Annual Reports</h3>
+                        <p>Complete transparency with detailed annual reports showing exactly how every rupee is
+                            utilized for patient care.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                            validateName() {
-                                if (!this.formData.name.trim()) {
-                                    this.errors.name = 'Full name is required';
-                                } else if (this.formData.name.trim().length < 2) {
-                                    this.errors.name = 'Name must be at least 2 characters';
-                                } else {
-                                    delete this.errors.name;
-                                }
-                            },
+        <!-- Gallery -->
+        <section id="gallery" class="section" style="padding-top:0">
+            <div class="wrap">
+                <div class="section-head split reveal">
+                    <div>
+                        <span class="eyebrow">08 — Gallery</span>
+                        <h2 style="margin-top:20px">Moments of <span class="serif">care.</span></h2>
+                    </div>
+                    <p class="lede">Moments of care, compassion, and community service from our camps.</p>
+                </div>
 
-                            validateEmail() {
-                                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                                if (!this.formData.email.trim()) {
-                                    this.errors.email = 'Email address is required';
-                                } else if (!emailRegex.test(this.formData.email)) {
-                                    this.errors.email = 'Please enter a valid email address';
-                                } else {
-                                    delete this.errors.email;
-                                }
-                            },
+                <div class="gallery">
+                    <button type="button" data-lightbox data-group="gallery"><img src="MedicalCamp/IMG_0373.jpg" alt="Medical camp" loading="lazy" decoding="async"></button>
+                    <button type="button" data-lightbox data-group="gallery"><img src="MedicalCamp/IMG_0378.jpg" alt="Community outreach" loading="lazy" decoding="async"></button>
+                    <button type="button" data-lightbox data-group="gallery"><img src="MedicalCamp/IMG_0379.jpg" alt="Patient care" loading="lazy" decoding="async"></button>
+                    <button type="button" data-lightbox data-group="gallery"><img src="MedicalCamp/IMG_0382.jpg" alt="Health screening" loading="lazy" decoding="async"></button>
+                    <button type="button" data-lightbox data-group="gallery"><img src="MedicalCamp/IMG_0384.jpg" alt="Medical team" loading="lazy" decoding="async"></button>
+                    <button type="button" data-lightbox data-group="gallery"><img src="MedicalCamp/IMG_0385.jpg" alt="Camp activity" loading="lazy" decoding="async"></button>
+                    <button type="button" data-lightbox data-group="gallery"><img src="MedicalCamp/IMG_0386.jpg" alt="Healthcare service" loading="lazy" decoding="async"></button>
+                    <button type="button" data-lightbox data-group="gallery"><img src="MedicalCamp/IMG_0387.jpg" alt="Consultation" loading="lazy" decoding="async"></button>
+                    <button type="button" data-lightbox data-group="gallery"><img src="MedicalCamp/IMG_3097.jpg" alt="Camp scene" loading="lazy" decoding="async"></button>
+                    <button type="button" data-lightbox data-group="gallery"><img src="MedicalCamp/IMG_3099.jpg" alt="Medical support" loading="lazy" decoding="async"></button>
+                    <button type="button" data-lightbox data-group="gallery"><img src="MedicalCamp/IMG_3100.jpg" alt="Patient checkup" loading="lazy" decoding="async"></button>
+                    <button type="button" data-lightbox data-group="gallery"><img src="MedicalCamp/IMG_3102.jpg" alt="Camp overview" loading="lazy" decoding="async"></button>
+                    <button type="button" data-lightbox data-group="gallery"><img src="MedicalCamp/IMG_3103.jpg" alt="Healthcare team" loading="lazy" decoding="async"></button>
+                    <button type="button" data-lightbox data-group="gallery"><img src="MedicalCamp/IMG_3104.jpg" alt="Community service" loading="lazy" decoding="async"></button>
+                    <button type="button" data-lightbox data-group="gallery"><img src="MedicalCamp/IMG_3119.jpg" alt="Camp activity" loading="lazy" decoding="async"></button>
+                    <button type="button" data-lightbox data-group="gallery"><img src="MedicalCamp/IMG_3120.jpg" alt="Patient care" loading="lazy" decoding="async"></button>
+                    <button type="button" data-lightbox data-group="gallery"><img src="MedicalCamp/IMG_3121.jpg" alt="Medical assistance" loading="lazy" decoding="async"></button>
+                    <button type="button" data-lightbox data-group="gallery"><img src="MedicalCamp/IMG_3122.jpg" alt="Health camp" loading="lazy" decoding="async"></button>
+                    <button type="button" data-lightbox data-group="gallery"><img src="MedicalCamp/IMG_3154.jpg" alt="Camp moment" loading="lazy" decoding="async"></button>
+                    <button type="button" data-lightbox data-group="gallery"><img src="MedicalCamp/IMG_3155.jpg" alt="Medical service" loading="lazy" decoding="async"></button>
+                    <button type="button" data-lightbox data-group="gallery"><img src="MedicalCamp/IMG_3156.jpg" alt="Community health" loading="lazy" decoding="async"></button>
+                    <button type="button" data-lightbox data-group="gallery"><img src="MedicalCamp/IMG_3157.jpg" alt="Camp event" loading="lazy" decoding="async"></button>
+                </div>
+            </div>
+        </section>
 
-                            validatePhone() {
-                                const phoneClean = this.formData.phone.replace(/[\s\-]/g, '');
-                                const phoneRegex = /^(\+91|91)?[6-9]\d{9}$/;
-                                if (!this.formData.phone.trim()) {
-                                    this.errors.phone = 'Phone number is required';
-                                } else if (!phoneRegex.test(phoneClean)) {
-                                    this.errors.phone = 'Enter a valid 10-digit Indian mobile number';
-                                } else {
-                                    delete this.errors.phone;
-                                }
-                            },
+        <!-- Contact -->
+        <section id="contact" class="section workshops">
+            <div class="wrap">
+                <div class="section-head split reveal">
+                    <div>
+                        <span class="eyebrow">09 — Get in touch</span>
+                        <h2 style="margin-top:20px">Let's build a healthier society, <span
+                                class="serif">together.</span></h2>
+                    </div>
+                    <p class="lede">Have a query, want to collaborate, or need assistance? Reach out to us and we'll get
+                        back to you shortly.</p>
+                </div>
 
-                            validateMessage() {
-                                if (!this.formData.message.trim()) {
-                                    this.errors.message = 'Please enter your message';
-                                } else if (this.formData.message.trim().length < 10) {
-                                    this.errors.message = 'Message should be at least 10 characters';
-                                } else {
-                                    delete this.errors.message;
-                                }
-                            },
+                <div class="contact-grid">
+                    <div class="reveal">
+                        <ul class="contact-list">
+                            <li>
+                                <a href="https://wa.me/918595954095" target="_blank" rel="noopener noreferrer">
+                                    <span class="ico wa"><svg aria-hidden="true"><use href="#i-whatsapp" /></svg></span>
+                                    <span><span class="label">WhatsApp us</span><span class="value">+91
+                                            8595954095</span></span>
+                                    <svg class="arrow" aria-hidden="true"><use href="#i-arrow-ur" /></svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="mailto:ridhimafoundationofficial@gmail.com">
+                                    <span class="ico"><svg aria-hidden="true"><use href="#i-mail" /></svg></span>
+                                    <span><span class="label">Email us</span><span
+                                            class="value">ridhimafoundationofficial@gmail.com</span></span>
+                                    <svg class="arrow" aria-hidden="true"><use href="#i-arrow-ur" /></svg>
+                                </a>
+                            </li>
+                            <li>
+                                <div>
+                                    <span class="ico"><svg aria-hidden="true"><use href="#i-pin" /></svg></span>
+                                    <span><span class="label">Visit us</span><span class="value">F-11 South Extension
+                                            Part 1, New Delhi</span></span>
+                                    <span></span>
+                                </div>
+                            </li>
+                        </ul>
 
-                            validateAll() {
-                                this.validateName();
-                                this.validateEmail();
-                                this.validatePhone();
-                                this.validateMessage();
-                                return Object.keys(this.errors).length === 0;
-                            },
-
-                            async submitForm(e) {
-                                if (!this.validateAll()) return;
-                                this.submitting = true;
-
-                                try {
-                                    const formElement = e.target;
-                                    const formData = new FormData(formElement);
-
-                                    const response = await fetch('https://api.web3forms.com/submit', {
-                                        method: 'POST',
-                                        body: formData
-                                    });
-
-                                    const result = await response.json();
-
-                                    if (result.success) {
-                                        this.submitted = true;
-                                        this.formData = { name: '', email: '', phone: '', subject: '', message: '' };
-                                    } else {
-                                        alert('Something went wrong. Please try again or contact us directly.');
-                                    }
-                                } catch (error) {
-                                    alert('Network error. Please check your connection and try again.');
-                                } finally {
-                                    this.submitting = false;
-                                }
-                            }
-                        }">
-
-                        <!-- Success State -->
-                        <div x-show="submitted" x-transition class="text-center py-12">
-                            <div
-                                class="bg-green-100 w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6 success-icon">
-                                <i class="fas fa-check text-5xl text-green-600"></i>
-                            </div>
-                            <h3 class="text-3xl font-bold text-primary mb-3">Thank You!</h3>
-                            <p class="text-gray-600 text-lg mb-6">Your message has been sent successfully.<br>We'll
-                                get back to you within 24-48 hours.</p>
-                            <button @click="submitted = false"
-                                class="text-accent hover:text-yellow-600 font-semibold transition">
-                                <i class="fas fa-paper-plane mr-2"></i>Send another message
-                            </button>
+                        <div class="response">
+                            <b>Response time.</b> We typically respond within <b>24–48 hours</b>. For urgent medical
+                            queries, please <a href="https://wa.me/918595954095" target="_blank"
+                                rel="noopener noreferrer">text us on WhatsApp</a>.
                         </div>
+                    </div>
 
-                        <!-- Form -->
-                        <form x-show="!submitted" @submit.prevent="submitForm($event)">
-
+                    <div class="form-card reveal">
+                        <form id="contact-form" novalidate>
                             <!-- Web3Forms hidden fields -->
                             <input type="hidden" name="access_key" value="a5ab329b-c4fc-478e-b168-4f6e35a3abd3">
-                            <input type="hidden" name="subject"
-                                value="New Contact Form Submission - Ridhima Foundation">
+                            <input type="hidden" name="subject" value="New Contact Form Submission - Ridhima Foundation">
                             <input type="hidden" name="from_name" value="Ridhima Foundation Website">
-                            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                            <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off">
 
-                            <h3 class="text-2xl font-bold text-primary mb-2">Send Us a Message</h3>
-                            <p class="text-gray-500 mb-8 text-sm">Fields marked with <span class="text-red-500">*</span>
-                                are required</p>
+                            <h3>Send us a message</h3>
+                            <p class="hint">Fields marked <span style="color:var(--rose)">*</span> are required</p>
 
-                            <div class="space-y-5">
-                                <!-- Name -->
-                                <div>
-                                    <label for="contact-name" class="block text-sm font-semibold text-gray-700 mb-1.5">
-                                        <i class="fas fa-user text-accent mr-1.5"></i>Full Name <span
-                                            class="text-red-500">*</span>
-                                    </label>
-                                    <input type="text" id="contact-name" name="name" x-model="formData.name"
-                                        @blur="validateName()" :class="{ 'error': errors.name }"
-                                        class="form-input w-full px-4 py-3 rounded-xl bg-gray-50 focus:bg-white outline-none text-gray-800"
-                                        placeholder="Enter your full name" required>
-                                    <p class="error-message" :class="{ 'visible': errors.name }" x-text="errors.name">
-                                    </p>
-                                </div>
-
-                                <!-- Email & Phone Row -->
-                                <div class="grid sm:grid-cols-2 gap-5">
-                                    <!-- Email -->
-                                    <div>
-                                        <label for="contact-email"
-                                            class="block text-sm font-semibold text-gray-700 mb-1.5">
-                                            <i class="fas fa-envelope text-accent mr-1.5"></i>Email <span
-                                                class="text-red-500">*</span>
-                                        </label>
-                                        <input type="email" id="contact-email" name="email" x-model="formData.email"
-                                            @blur="validateEmail()" :class="{ 'error': errors.email }"
-                                            class="form-input w-full px-4 py-3 rounded-xl bg-gray-50 focus:bg-white outline-none text-gray-800"
-                                            placeholder="your@email.com" required>
-                                        <p class="error-message" :class="{ 'visible': errors.email }"
-                                            x-text="errors.email"></p>
-                                    </div>
-
-                                    <!-- Phone -->
-                                    <div>
-                                        <label for="contact-phone"
-                                            class="block text-sm font-semibold text-gray-700 mb-1.5">
-                                            <i class="fas fa-phone text-accent mr-1.5"></i>Phone <span
-                                                class="text-red-500">*</span>
-                                        </label>
-                                        <input type="tel" id="contact-phone" name="phone" x-model="formData.phone"
-                                            @blur="validatePhone()" :class="{ 'error': errors.phone }"
-                                            class="form-input w-full px-4 py-3 rounded-xl bg-gray-50 focus:bg-white outline-none text-gray-800"
-                                            placeholder="+91 XXXXX XXXXX" required>
-                                        <p class="error-message" :class="{ 'visible': errors.phone }"
-                                            x-text="errors.phone"></p>
-                                    </div>
-                                </div>
-
-                                <!-- Subject -->
-                                <div>
-                                    <label for="contact-subject"
-                                        class="block text-sm font-semibold text-gray-700 mb-1.5">
-                                        <i class="fas fa-tag text-accent mr-1.5"></i>Subject
-                                    </label>
-                                    <select id="contact-subject" name="inquiry_type" x-model="formData.subject"
-                                        class="form-input w-full px-4 py-3 rounded-xl bg-gray-50 focus:bg-white outline-none text-gray-800 cursor-pointer">
-                                        <option value="" disabled selected>Select a topic</option>
-                                        <option value="Medical Camp Inquiry">Medical Camp Inquiry</option>
-                                        <option value="Volunteer with Us">Volunteer with Us</option>
-                                        <option value="CSR Partnership">CSR / Corporate Partnership</option>
-                                        <option value="Donation Query">Donation Query</option>
-                                        <option value="Workshop Request">Workshop / Training Request</option>
-                                        <option value="General Query">General Query</option>
-                                        <option value="Other">Other</option>
-                                    </select>
-                                </div>
-
-                                <!-- Message -->
-                                <div>
-                                    <label for="contact-message"
-                                        class="block text-sm font-semibold text-gray-700 mb-1.5">
-                                        <i class="fas fa-comment-dots text-accent mr-1.5"></i>Message <span
-                                            class="text-red-500">*</span>
-                                    </label>
-                                    <textarea id="contact-message" name="message" rows="4" x-model="formData.message"
-                                        @blur="validateMessage()" :class="{ 'error': errors.message }"
-                                        class="form-input w-full px-4 py-3 rounded-xl bg-gray-50 focus:bg-white outline-none text-gray-800 resize-none"
-                                        placeholder="Tell us how we can help you..." required></textarea>
-                                    <p class="error-message" :class="{ 'visible': errors.message }"
-                                        x-text="errors.message"></p>
-                                </div>
-
-                                <!-- Submit Button -->
-                                <button type="submit" :disabled="submitting"
-                                    class="w-full bg-gradient-to-r from-accent to-yellow-500 hover:from-yellow-500 hover:to-accent text-white font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100 text-lg">
-                                    <span x-show="!submitting">
-                                        <i class="fas fa-paper-plane mr-2"></i>Send Message
-                                    </span>
-                                    <span x-show="submitting" class="flex items-center justify-center">
-                                        <svg class="animate-spin h-5 w-5 mr-2" viewBox="0 0 24 24">
-                                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor"
-                                                stroke-width="4" fill="none"></circle>
-                                            <path class="opacity-75" fill="currentColor"
-                                                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
-                                        </svg>
-                                        Sending...
-                                    </span>
-                                </button>
+                            <div class="field">
+                                <label for="contact-name">Full name <span class="req">*</span></label>
+                                <input type="text" id="contact-name" name="name" autocomplete="name"
+                                    placeholder="Enter your full name" required>
+                                <p class="error" aria-live="polite"></p>
                             </div>
+
+                            <div class="field-row">
+                                <div class="field">
+                                    <label for="contact-email">Email <span class="req">*</span></label>
+                                    <input type="email" id="contact-email" name="email" autocomplete="email"
+                                        placeholder="your@email.com" required>
+                                    <p class="error" aria-live="polite"></p>
+                                </div>
+                                <div class="field">
+                                    <label for="contact-phone">Phone <span class="req">*</span></label>
+                                    <input type="tel" id="contact-phone" name="phone" autocomplete="tel"
+                                        placeholder="+91 XXXXX XXXXX" required>
+                                    <p class="error" aria-live="polite"></p>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label for="contact-subject">Subject</label>
+                                <select id="contact-subject" name="inquiry_type">
+                                    <option value="" disabled selected>Select a topic</option>
+                                    <option value="Medical Camp Inquiry">Medical Camp Inquiry</option>
+                                    <option value="Volunteer with Us">Volunteer with Us</option>
+                                    <option value="CSR Partnership">CSR / Corporate Partnership</option>
+                                    <option value="Donation Query">Donation Query</option>
+                                    <option value="Workshop Request">Workshop / Training Request</option>
+                                    <option value="General Query">General Query</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="field">
+                                <label for="contact-message">Message <span class="req">*</span></label>
+                                <textarea id="contact-message" name="message" rows="5"
+                                    placeholder="Tell us how we can help you..." required></textarea>
+                                <p class="error" aria-live="polite"></p>
+                            </div>
+
+                            <button type="submit" class="btn btn-brand"><span class="label">Send message</span>
+                                <svg aria-hidden="true"><use href="#i-arrow" /></svg></button>
+                            <p class="form-status" role="status"></p>
                         </form>
+
+                        <div id="form-success" class="form-success hidden" role="status">
+                            <span class="success-icon" aria-hidden="true"><svg><use href="#i-check" /></svg></span>
+                            <h3>Thank you!</h3>
+                            <p>Your message has been sent successfully.<br>We'll get back to you within 24–48 hours.</p>
+                            <button type="button" id="send-another" class="btn btn-ghost">Send another message</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Footer Section -->
-    <footer id="footer" class="bg-slate-900 text-white py-16 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid md:grid-cols-3 gap-12 mb-8">
-                <!-- Column 1: Contact Info -->
+    <!-- Footer -->
+    <footer class="footer on-dark">
+        <div class="wrap">
+            <div class="footer-top">
                 <div>
-                    <img src="NewLogo.png" alt="Ridhima Foundation Logo" class="h-16 w-auto mb-4">
-                    <h3 class="text-2xl font-bold mb-4">Ridhima Foundation</h3>
-                    <p class="text-gray-400 mb-4">Healing Women. Empowering Futures.</p>
-                    <div class="space-y-3">
-                        <p class="flex items-start">
-                            <i class="fas fa-map-marker-alt text-accent mr-3 mt-1"></i>
-                            <span class="text-gray-300">F-11 South Extension part 1<br>New Delhi</span>
-                        </p>
-                        <a href="https://wa.me/918595954095" target="_blank" class="flex items-center group transition">
-                            <i
-                                class="fab fa-whatsapp text-accent mr-3 text-xl group-hover:text-green-400 transition-colors"></i>
-                            <span class="text-gray-300 group-hover:text-white transition-colors">+91 8595954095</span>
-                        </a>
-                        <p class="flex items-center">
-                            <i class="fas fa-envelope text-accent mr-3"></i>
-                            <span class="text-gray-300">ridhimafoundationofficial@gmail.com</span>
-                        </p>
-                    </div>
+                    <a href="#home" class="brand">
+                        <img src="NewLogo.png" alt="Ridhima Foundation Logo" width="44" height="44" loading="lazy">
+                        <span class="brand-name">Ridhima Foundation<small>A CSR initiative by Dr. Deepika
+                                Singh</small></span>
+                    </a>
+                    <p class="footer-tagline">Healing Women. Empowering Futures. Free and subsidised care for the
+                        women who need it most.</p>
                 </div>
-
-                <!-- Column 2: Quick Links -->
                 <div>
-                    <h3 class="text-2xl font-bold mb-4">Quick Links</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#home" class="text-gray-400 hover:text-accent transition">Home</a></li>
-                        <li><a href="#about" class="text-gray-400 hover:text-accent transition">About Us</a></li>
-                        <li><a href="#programs" class="text-gray-400 hover:text-accent transition">Our Programs</a></li>
-                        <li><a href="#impact" class="text-gray-400 hover:text-accent transition">Our Impact</a></li>
-                        <li><a href="#transparency" class="text-gray-400 hover:text-accent transition">Transparency</a>
-                        </li>
-                        <li><a href="#gallery" class="text-gray-400 hover:text-accent transition">Gallery</a></li>
-                        <li><a href="#donate" class="text-gray-400 hover:text-accent transition">Donate</a></li>
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="#about">About us</a></li>
+                        <li><a href="#programs">Our programs</a></li>
+                        <li><a href="#medical-camp">Medical camps</a></li>
+                        <li><a href="#founders">Founders</a></li>
+                        <li><a href="#impact">Our impact</a></li>
                     </ul>
                 </div>
-
-                <!-- Column 3: Legal & Social -->
                 <div>
-
-
-                    <h4 class="text-xl font-bold mb-3">Follow Us</h4>
-                    <div class="flex space-x-4">
+                    <h4>Get involved</h4>
+                    <ul>
+                        <li><a href="#get-involved">Ways to help</a></li>
+                        <li><a href="#workshops">Workshops</a></li>
+                        <li><a href="#transparency">Transparency</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <ul>
+                        <li>F-11 South Extension Part 1<br>New Delhi</li>
+                        <li><a href="https://wa.me/918595954095" target="_blank" rel="noopener noreferrer">+91
+                                8595954095</a></li>
+                        <li><a href="mailto:ridhimafoundationofficial@gmail.com"
+                                style="overflow-wrap:anywhere">ridhimafoundationofficial@gmail.com</a></li>
+                    </ul>
+                    <div class="socials" style="margin-top:20px">
                         <a href="https://www.facebook.com/profile.php?id=61579120950513" target="_blank"
-                            rel="noopener noreferrer"
-                            class="bg-white/10 hover:bg-accent w-12 h-12 rounded-full flex items-center justify-center transition"
-                            aria-label="Follow us on Facebook">
-                            <i class="fab fa-facebook-f text-lg"></i>
-                        </a>
+                            rel="noopener noreferrer" aria-label="Follow us on Facebook"><svg aria-hidden="true">
+                                <use href="#i-facebook" />
+                            </svg></a>
                         <a href="https://www.instagram.com/ridhima_foundation/" target="_blank"
-                            rel="noopener noreferrer"
-                            class="bg-white/10 hover:bg-accent w-12 h-12 rounded-full flex items-center justify-center transition"
-                            aria-label="Follow us on Instagram">
-                            <i class="fab fa-instagram text-lg"></i>
-                        </a>
+                            rel="noopener noreferrer" aria-label="Follow us on Instagram"><svg aria-hidden="true">
+                                <use href="#i-instagram" />
+                            </svg></a>
                         <a href="https://youtube.com/@ridhimafoundationofficial?si=cLL3S_lnHxnJZMgI" target="_blank"
-                            rel="noopener noreferrer"
-                            class="bg-white/10 hover:bg-accent w-12 h-12 rounded-full flex items-center justify-center transition"
-                            aria-label="Subscribe on YouTube">
-                            <i class="fab fa-youtube text-lg"></i>
-                        </a>
+                            rel="noopener noreferrer" aria-label="Subscribe on YouTube"><svg aria-hidden="true">
+                                <use href="#i-youtube" />
+                            </svg></a>
                     </div>
                 </div>
             </div>
 
-            <!-- Bottom Bar -->
-            <div class="border-t border-gray-700 pt-8 text-center text-gray-400">
-                <p>&copy; 2026 Ridhima Foundation. All Rights Reserved. | A CSR Initiative by Dr. Deepika Singh</p>
+            <p class="wordmark">Every woman, heard, healed &amp; <span class="serif">honored.</span></p>
+
+            <div class="footer-bottom">
+                <span>&copy; 2026 Ridhima Foundation. All rights reserved.</span>
+                <span>12A &amp; 80G registered · New Delhi, India</span>
             </div>
         </div>
     </footer>
 
-    <!-- Lightbox Overlay -->
-    <div id="lightbox" onclick="closeLightbox()">
-        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
-        <img id="lightbox-img" src="" alt="Gallery Image">
+    <a class="wa-float" href="https://wa.me/918595954095" target="_blank" rel="noopener noreferrer"
+        aria-label="Chat with us on WhatsApp"><svg aria-hidden="true"><use href="#i-whatsapp" /></svg></a>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+        <span class="lb-count"></span>
+        <button type="button" class="lb-btn lb-close" aria-label="Close">&times;</button>
+        <button type="button" class="lb-btn lb-prev" aria-label="Previous image">&#8249;</button>
+        <img alt="">
+        <button type="button" class="lb-btn lb-next" aria-label="Next image">&#8250;</button>
     </div>
-
-    <!-- Back to Top Button -->
-    <button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"
-        class="bg-accent hover:bg-yellow-600 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center transition duration-300 hover:scale-110">
-        <i class="fas fa-arrow-up text-xl"></i>
-    </button>
-
-    <!-- All Enhancement Scripts -->
-    <script>
-        // === PRELOADER ===
-        window.addEventListener('load', function () {
-            const preloader = document.getElementById('preloader');
-            setTimeout(function () {
-                preloader.classList.add('hidden');
-            }, 600);
-        });
-
-        // === SCROLL REVEAL (Intersection Observer) ===
-        const revealObserver = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry) {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('revealed');
-                }
-            });
-        }, { threshold: 0.15 });
-
-        document.querySelectorAll('.scroll-reveal, .scroll-reveal-left, .scroll-reveal-right, .scroll-reveal-stagger').forEach(function (el) {
-            revealObserver.observe(el);
-        });
-
-        // === ANIMATED COUNTERS ===
-        const counterObserver = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry) {
-                if (entry.isIntersecting) {
-                    const counter = entry.target;
-                    const target = parseInt(counter.getAttribute('data-target'));
-                    const suffix = counter.getAttribute('data-suffix') || '';
-                    const duration = 2000;
-                    const stepTime = 20;
-                    const steps = duration / stepTime;
-                    const increment = target / steps;
-                    let current = 0;
-
-                    const timer = setInterval(function () {
-                        current += increment;
-                        if (current >= target) {
-                            counter.textContent = target + suffix;
-                            clearInterval(timer);
-                        } else {
-                            counter.textContent = Math.floor(current) + suffix;
-                        }
-                    }, stepTime);
-
-                    counterObserver.unobserve(counter);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        document.querySelectorAll('.counter').forEach(function (el) {
-            counterObserver.observe(el);
-        });
-
-        // === LIGHTBOX GALLERY ===
-        var gallerySection = document.getElementById('gallery');
-        if (gallerySection) {
-            var galleryImages = gallerySection.querySelectorAll('img');
-            galleryImages.forEach(function (img) {
-                img.style.cursor = 'pointer';
-                img.addEventListener('click', function () {
-                    var lightbox = document.getElementById('lightbox');
-                    var lightboxImg = document.getElementById('lightbox-img');
-                    lightboxImg.src = this.src;
-                    lightboxImg.alt = this.alt;
-                    lightbox.classList.add('active');
-                    document.body.style.overflow = 'hidden';
-                });
-            });
-        }
-
-        function closeLightbox() {
-            var lightbox = document.getElementById('lightbox');
-            lightbox.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape') closeLightbox();
-        });
-
-        // === NAVBAR SCROLL EFFECT ===
-        var navbar = document.querySelector('nav');
-        window.addEventListener('scroll', function () {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        // === BACK TO TOP BUTTON ===
-        var backToTopBtn = document.getElementById('backToTop');
-        window.addEventListener('scroll', function () {
-            if (window.scrollY > 500) {
-                backToTopBtn.classList.add('visible');
-            } else {
-                backToTopBtn.classList.remove('visible');
-            }
-        });
-    </script>
 
 </body>
 
