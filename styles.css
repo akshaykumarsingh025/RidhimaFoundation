@@ -3292,3 +3292,438 @@ p {
 .donor-more {
     margin-top: 16px;
 }
+
+/* ---------- Videos & reels sliders ---------- */
+
+.media-block {
+    margin-top: 28px;
+    padding: clamp(24px, 3.5vw, 40px);
+    border-radius: var(--radius-lg);
+    background: var(--paper);
+    border: 1px solid var(--line);
+    overflow: hidden;
+}
+
+.media-head {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: end;
+    gap: 16px 24px;
+    margin-bottom: 24px;
+}
+
+.media-head h3 {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    margin: 12px 0 8px;
+}
+
+.media-head p {
+    color: var(--muted);
+    font-size: 15.5px;
+    max-width: 56ch;
+}
+
+.media-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px 6px 8px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.media-kicker svg {
+    width: 18px;
+    height: 18px;
+}
+
+.media-kicker.yt {
+    background: #fdecec;
+    color: #c4161c;
+}
+
+.media-kicker.ig {
+    background: #fbe9f3;
+    color: #b42a74;
+}
+
+.slider-nav {
+    display: flex;
+    gap: 8px;
+}
+
+.slider-btn {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: 1.5px solid var(--line-strong);
+    background: var(--paper);
+    color: var(--plum);
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    transition: background-color .15s ease, border-color .15s ease, color .15s ease;
+}
+
+.slider-btn:hover {
+    background: var(--plum);
+    border-color: var(--plum);
+    color: #fff;
+}
+
+.slider-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+.slider {
+    position: relative;
+    margin-inline: calc(clamp(24px, 3.5vw, 40px) * -1);
+}
+
+.slider-track {
+    list-style: none;
+    margin: 0;
+    padding: 4px clamp(24px, 3.5vw, 40px) 12px;
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: clamp(24px, 3.5vw, 40px);
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+}
+
+.slider-track::-webkit-scrollbar {
+    display: none;
+}
+
+.slider-track > li {
+    scroll-snap-align: start;
+    flex: none;
+}
+
+/* Video cards */
+
+.vcard {
+    width: min(78vw, 300px);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.vthumb {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    border-radius: var(--radius);
+    overflow: hidden;
+    cursor: pointer;
+    background: var(--sand-200);
+    aspect-ratio: 16 / 9;
+}
+
+.vthumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .5s cubic-bezier(.2, .7, .2, 1);
+}
+
+.vthumb::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(42, 17, 49, 0) 45%, rgba(42, 17, 49, .55));
+}
+
+.vthumb:hover img {
+    transform: scale(1.05);
+}
+
+.vplay {
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    width: 56px;
+    height: 56px;
+    margin: -28px 0 0 -28px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: rgba(255, 255, 255, .92);
+    color: var(--rose);
+    box-shadow: 0 10px 24px -8px rgba(0, 0, 0, .5);
+    transition: transform .2s ease, background-color .2s ease, color .2s ease;
+}
+
+.vplay svg {
+    width: 24px;
+    height: 24px;
+    margin-left: 3px;
+}
+
+.vthumb:hover .vplay {
+    transform: scale(1.1);
+    background: var(--rose);
+    color: #fff;
+}
+
+.vdur {
+    position: absolute;
+    z-index: 1;
+    right: 10px;
+    bottom: 10px;
+    padding: 2px 8px;
+    border-radius: 6px;
+    background: rgba(0, 0, 0, .75);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.vcard h3 {
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.vcard h3 a {
+    text-decoration: none;
+}
+
+.vcard h3 a:hover {
+    color: var(--rose);
+}
+
+.vcard time {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: -4px;
+}
+
+/* Reels */
+
+.reel {
+    width: 328px;
+    max-width: 82vw;
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid var(--line);
+}
+
+.reel iframe {
+    display: block;
+    width: 100%;
+    height: 580px;
+    border: 0;
+}
+
+.ig-card {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 20px;
+    border-radius: var(--radius);
+    text-decoration: none;
+    color: #fff;
+    background: linear-gradient(115deg, #833ab4, #c13584 45%, #e1306c 70%, #fd8d32);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.ig-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 32px -14px rgba(193, 53, 132, .7);
+}
+
+.ig-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    display: grid;
+    place-items: center;
+    background: rgba(255, 255, 255, .18);
+}
+
+.ig-icon svg {
+    width: 26px;
+    height: 26px;
+}
+
+.ig-card b {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.ig-card span {
+    font-size: 14.5px;
+    line-height: 1.45;
+}
+
+.ig-follow {
+    padding: 10px 18px;
+    border-radius: 999px;
+    background: #fff;
+    color: #c13584;
+    font-weight: 700;
+}
+
+@media (max-width: 560px) {
+    .ig-card {
+        grid-template-columns: auto 1fr;
+    }
+
+    .ig-follow {
+        grid-column: 1 / -1;
+        text-align: center;
+    }
+}
+
+.media-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.media-links .btn {
+    white-space: normal;
+}
+
+.btn-yt {
+    background: #e62117;
+    color: #fff;
+}
+
+.btn-yt:hover {
+    background: #b5170f;
+}
+
+.btn-ig {
+    background: linear-gradient(115deg, #833ab4, #c13584 50%, #fd8d32);
+    color: #fff;
+}
+
+.btn-ig:hover {
+    filter: brightness(1.08);
+}
+
+.btn-yt svg,
+.btn-ig svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* ---------- Video player dialog ---------- */
+
+.video-modal {
+    width: min(960px, calc(100vw - 24px));
+    padding: 0;
+    border: 0;
+    border-radius: var(--radius);
+    background: #000;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.video-modal::backdrop {
+    background: rgba(20, 8, 24, .85);
+    backdrop-filter: blur(4px);
+}
+
+.video-frame {
+    aspect-ratio: 16 / 9;
+    background: #000;
+}
+
+.video-frame iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.video-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px 12px 18px;
+    background: var(--plum-deep);
+    color: #fff;
+}
+
+.video-title {
+    flex: 1;
+    min-width: 0;
+    font-size: 14.5px;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.video-bar .btn {
+    padding: 9px 16px;
+    font-size: 14px;
+    color: #fff;
+    border-color: rgba(255, 255, 255, .35);
+}
+
+.video-bar .btn:hover {
+    background: rgba(255, 255, 255, .1);
+    border-color: #fff;
+}
+
+.video-bar .modal-close {
+    position: static;
+    flex: none;
+    background: rgba(255, 255, 255, .12);
+    color: #fff;
+}
+
+@media (max-width: 560px) {
+    .video-bar .btn {
+        display: none;
+    }
+}
+
+/* Continuous glide: the row is moved with a transform, the frame clips it */
+.slider.is-marquee {
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+}
+
+.slider.is-marquee .slider-track {
+    overflow: visible;
+    scroll-snap-type: none;
+    touch-action: pan-y;
+    will-change: transform;
+    user-select: none;
+    -webkit-user-select: none;
+    cursor: grab;
+}
+
+.slider.is-dragging .slider-track {
+    cursor: grabbing;
+}
+
+.slider.is-marquee img {
+    -webkit-user-drag: none;
+}

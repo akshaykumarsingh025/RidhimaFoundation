@@ -442,4 +442,236 @@
             })
             .catch(function () { /* keep the empty-state message */ });
     }
+
+    // === SLIDERS (videos & reels): arrows, swipe, gentle auto-scroll ===
+    var setupSlider = function (slider) {
+        var track = slider.querySelector('.slider-track');
+        var block = slider.closest('.media-block');
+        var step = function () {
+            var card = track.firstElementChild;
+            if (!card) return track.clientWidth;
+            var gap = parseFloat(getComputedStyle(track).columnGap) || 16;
+            return card.getBoundingClientRect().width + gap;
+        };
+        var atEnd = function () { return track.scrollLeft + track.clientWidth >= track.scrollWidth - 8; };
+        var move = function (dir) {
+            if (dir > 0 && atEnd()) track.scrollTo({ left: 0, behavior: 'smooth' });
+            else if (dir < 0 && track.scrollLeft <= 4) track.scrollTo({ left: track.scrollWidth, behavior: 'smooth' });
+            else track.scrollBy({ left: dir * step(), behavior: 'smooth' });
+        };
+
+        // Continuous glide: data-marquee="<pixels per second>" (handles its own arrows)
+        var speed = parseFloat(slider.getAttribute('data-marquee'));
+        if (speed && !reduceMotion && setupMarquee(slider, track, block, speed)) return;
+
+        if (block) {
+            block.querySelectorAll('[data-slide]').forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    move(parseInt(btn.getAttribute('data-slide'), 10));
+                });
+            });
+        }
+    };
+
+    // Endless, smooth auto-scroll. The cards are duplicated once so the row can
+    // loop without a jump; users can still swipe, scroll or use the arrows.
+    var setupMarquee = function (slider, track, block, speed) {
+        var originals = Array.prototype.slice.call(track.children);
+        if (originals.length < 2) return false;
+        originals.forEach(function (li) {
+            var copy = li.cloneNode(true);
+            copy.setAttribute('aria-hidden', 'true');
+            copy.classList.add('is-clone');
+            copy.querySelectorAll('a, button').forEach(function (el) { el.setAttribute('tabindex', '-1'); });
+            track.appendChild(copy);
+        });
+        slider.classList.add('is-marquee');
+
+        track.querySelectorAll('a, img').forEach(function (el) { el.setAttribute('draggable', 'false'); });
+
+        var loopWidth = function () {
+            return track.children[originals.length].offsetLeft - originals[0].offsetLeft;
+        };
+        // The row is moved with a GPU transform (sub-pixel smooth), not by scrolling
+        var pos = 0;
+        var wrap = function () {
+            var lw = loopWidth();
+            if (lw <= 0) return;
+            pos = ((pos % lw) + lw) % lw;
+        };
+        var apply = function () {
+            wrap();
+            track.style.transform = 'translate3d(' + (-pos).toFixed(2) + 'px, 0, 0)';
+        };
+
+        var hovering = false;
+        var visible = true;
+        var pausedUntil = 0;
+        var tween = null; // arrow-button animation
+        var hold = function (ms) { pausedUntil = Date.now() + (ms || 2500); };
+
+        slider.addEventListener('mouseenter', function () { hovering = true; });
+        slider.addEventListener('mouseleave', function () { hovering = false; });
+
+        // Keyboard: bring the focused card into view
+        slider.addEventListener('focusin', function (e) {
+            hold(6000);
+            slider.scrollLeft = 0;
+            var li = e.target.closest('.slider-track > li');
+            if (li) { pos = li.offsetLeft - originals[0].offsetLeft; apply(); }
+        });
+
+        // Drag / swipe with mouse, finger or pen
+        var drag = null;
+        var swallowClick = false;
+        track.addEventListener('pointerdown', function (e) {
+            if (e.button !== 0) return;
+            drag = { id: e.pointerId, x: e.clientX, from: pos, moved: false };
+            tween = null;
+            hold();
+        });
+        track.addEventListener('pointermove', function (e) {
+            if (!drag || e.pointerId !== drag.id) return;
+            var dx = e.clientX - drag.x;
+            if (!drag.moved && Math.abs(dx) > 6) {
+                drag.moved = true;
+                slider.classList.add('is-dragging');
+                try { track.setPointerCapture(e.pointerId); } catch (err) { /* ignore */ }
+            }
+            if (drag.moved) {
+                pos = drag.from - dx;
+                apply();
+                hold();
+            }
+        });
+        var endDrag = function (e) {
+            if (!drag || (e && e.pointerId !== drag.id)) return;
+            if (drag.moved) swallowClick = true;
+            slider.classList.remove('is-dragging');
+            drag = null;
+            hold();
+        };
+        track.addEventListener('pointerup', endDrag);
+        track.addEventListener('pointercancel', endDrag);
+        // A drag must not count as a click on a video
+        track.addEventListener('click', function (e) {
+            if (swallowClick) {
+                swallowClick = false;
+                e.preventDefault();
+                e.stopPropagation();
+            }
+        }, true);
+        // Trackpad sideways swipe / shift + mouse wheel
+        track.addEventListener('wheel', function (e) {
+            var dx = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : (e.shiftKey ? e.deltaY : 0);
+            if (!dx) return;
+            e.preventDefault();
+            tween = null;
+            pos += dx;
+            apply();
+            hold();
+        }, { passive: false });
+
+        if ('IntersectionObserver' in window) {
+            new IntersectionObserver(function (entries) {
+                visible = entries[0].isIntersecting;
+            }).observe(slider);
+        }
+
+        // Arrow buttons: glide one card left/right, then carry on
+        if (block) {
+            block.querySelectorAll('[data-slide]').forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    var card = originals[0].getBoundingClientRect().width +
+                        (parseFloat(getComputedStyle(track).columnGap) || 16);
+                    var dir = parseInt(btn.getAttribute('data-slide'), 10);
+                    tween = { from: pos, to: pos + dir * card, start: performance.now() };
+                    hold(3000);
+                });
+            });
+        }
+
+        var last = performance.now();
+        var frame = function (now) {
+            var dt = Math.max(0, Math.min(now - last, 100));
+            last = now;
+            if (tween) {
+                var t = Math.min(1, (now - tween.start) / 450);
+                var ease = 1 - Math.pow(1 - t, 3);
+                pos = tween.from + (tween.to - tween.from) * ease;
+                if (t >= 1) tween = null;
+                apply();
+            } else if (visible && !hovering && !document.hidden && Date.now() >= pausedUntil) {
+                pos += speed * dt / 1000;
+                apply();
+            }
+            requestAnimationFrame(frame);
+        };
+        requestAnimationFrame(frame);
+        return true;
+    };
+    document.querySelectorAll('[data-slider]').forEach(setupSlider);
+
+    // === VIDEO PLAYER (opens YouTube videos on our page) ===
+    var videoModal = document.getElementById('video-modal');
+    if (videoModal) {
+        var frame = videoModal.querySelector('[data-video-frame]');
+        var vTitle = videoModal.querySelector('[data-video-title]');
+        var vLink = videoModal.querySelector('[data-video-link]');
+        document.querySelectorAll('[data-yt]').forEach(function (btn) {
+            btn.setAttribute('aria-label', T('Play video: ', 'वीडियो चलाएँ: ') + btn.getAttribute('data-title'));
+            btn.addEventListener('click', function () {
+                var id = btn.getAttribute('data-yt');
+                var watchUrl = 'https://www.youtube.com/watch?v=' + encodeURIComponent(id);
+                if (typeof videoModal.showModal !== 'function') {
+                    window.open(watchUrl, '_blank', 'noopener');
+                    return;
+                }
+                var iframe = document.createElement('iframe');
+                iframe.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(id) + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+                iframe.title = btn.getAttribute('data-title');
+                iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+                iframe.allowFullscreen = true;
+                frame.textContent = '';
+                frame.appendChild(iframe);
+                vTitle.textContent = btn.getAttribute('data-title');
+                vLink.href = watchUrl;
+                videoModal.showModal();
+            });
+        });
+        videoModal.addEventListener('close', function () { frame.textContent = ''; });
+        videoModal.querySelector('[data-close-video]').addEventListener('click', function () { videoModal.close(); });
+        videoModal.addEventListener('click', function (e) {
+            if (e.target === videoModal) videoModal.close();
+        });
+    }
+
+    // === INSTAGRAM REELS (links listed in /reels.json) ===
+    var reelTrack = document.querySelector('[data-reels]');
+    if (reelTrack && window.fetch) {
+        fetch('/reels.json', { cache: 'no-cache' })
+            .then(function (r) { return r.ok ? r.json() : { reels: [] }; })
+            .then(function (data) {
+                var reels = (data && data.reels || []).map(function (url) {
+                    var m = String(url).match(/instagram\.com\/(?:[\w.]+\/)?(reel|reels|p|tv)\/([\w-]+)/);
+                    return m ? { kind: m[1] === 'reels' ? 'reel' : m[1], code: m[2] } : null;
+                }).filter(Boolean);
+                if (!reels.length) return;
+                reels.forEach(function (r) {
+                    var li = document.createElement('li');
+                    li.className = 'reel';
+                    var iframe = document.createElement('iframe');
+                    iframe.src = 'https://www.instagram.com/' + r.kind + '/' + r.code + '/embed';
+                    iframe.title = T('Instagram reel by Dr. Deepika Singh', 'डॉ. दीपिका सिंह की Instagram रील');
+                    iframe.loading = 'lazy';
+                    iframe.setAttribute('scrolling', 'no');
+                    iframe.allow = 'encrypted-media; picture-in-picture; web-share';
+                    li.appendChild(iframe);
+                    reelTrack.appendChild(li);
+                });
+                var nav = document.querySelector('[data-reels-nav]');
+                if (nav && reels.length > 1) nav.hidden = false;
+            })
+            .catch(function () { /* keep the follow card */ });
+    }
 })();

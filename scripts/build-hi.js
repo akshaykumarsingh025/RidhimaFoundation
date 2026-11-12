@@ -73,12 +73,17 @@ function translateHtml(html) {
     const re = /<!--[\s\S]*?-->|<script\b[\s\S]*?<\/script>|<style\b[\s\S]*?<\/style>|<[^>]+>|[^<]+/gi;
     let out = '';
     let m;
+    let skip = false; // inside <!-- i18n:skip --> … <!-- /i18n:skip --> (e.g. YouTube titles)
     while ((m = re.exec(html))) {
         const t = m[0];
-        if (t.startsWith('<!--') || /^<style/i.test(t)) out += t;
+        if (t.startsWith('<!--')) {
+            if (/<!--\s*i18n:skip\s*-->/.test(t)) skip = true;
+            else if (/<!--\s*\/i18n:skip\s*-->/.test(t)) skip = false;
+            out += t;
+        } else if (/^<style/i.test(t)) out += t;
         else if (/^<script/i.test(t)) out += /id="ld-faq"/.test(t) ? translateFaqJsonLd(t) : translateTag(t.slice(0, t.indexOf('>') + 1)) + t.slice(t.indexOf('>') + 1);
-        else if (t.startsWith('<')) out += translateTag(t);
-        else out += tr(t);
+        else if (t.startsWith('<')) out += skip ? t.replace(RELATIVE_URL, (x, a, url) => a + '/' + url + '"') : translateTag(t);
+        else out += skip ? t : tr(t);
     }
     return out;
 }

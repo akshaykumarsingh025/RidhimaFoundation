@@ -1,9 +1,10 @@
 # Netlify configuration for Ridhima Foundation
 
 [build]
-  # Static site. The build step only generates the Hindi page (hi/index.html)
-  # from index.html + i18n/hi.json — plain Node, no npm install needed.
-  command = "node scripts/build-hi.js"
+  # Static site, plain Node, no npm install needed:
+  #  1. build-videos.js refreshes the YouTube slider from Dr. Deepika's channel
+  #  2. build-hi.js generates the Hindi page (hi/index.html) from index.html + i18n/hi.json
+  command = "node scripts/build-videos.js && node scripts/build-hi.js"
   publish = "."
 
 # Optimize caching for faster page loads
@@ -52,7 +53,7 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
     Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=()"
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://api.web3forms.com; form-action 'self' https://api.web3forms.com; frame-ancestors 'self'; manifest-src 'self'"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://i.ytimg.com; frame-src https://www.youtube-nocookie.com https://www.instagram.com; connect-src 'self' https://api.web3forms.com; form-action 'self' https://api.web3forms.com; frame-ancestors 'self'; manifest-src 'self'"
 
 # Stylesheet, script and data names are not fingerprinted, so let browsers revalidate
 [[headers]]
@@ -62,6 +63,11 @@
 
 [[headers]]
   for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/reels.json"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
 
