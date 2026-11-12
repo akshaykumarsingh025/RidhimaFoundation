@@ -1,0 +1,4 @@
+{
+    "_howTo": "Add one entry per donor who agreed to be shown, newest first. Only 'name' is required. Use \"Anonymous\" if they want to stay unnamed. Example: { \"name\": \"Anita Sharma\", \"city\": \"New Delhi\", \"date\": \"2026-11-12\", \"note\": \"In memory of my mother\" }",
+    "donors": []
+}

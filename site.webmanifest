@@ -1,0 +1,15 @@
+{
+    "name": "Ridhima Foundation",
+    "short_name": "Ridhima",
+    "description": "Women's health NGO in New Delhi — free medical camps, cancer screening and fertility support.",
+    "start_url": "/",
+    "scope": "/",
+    "display": "standalone",
+    "background_color": "#fbf7f2",
+    "theme_color": "#3b1846",
+    "lang": "en-IN",
+    "icons": [
+        { "src": "/assets/favicon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+        { "src": "/assets/favicon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+    ]
+}
