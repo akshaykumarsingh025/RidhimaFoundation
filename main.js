@@ -513,12 +513,21 @@
         slider.addEventListener('mouseenter', function () { hovering = true; });
         slider.addEventListener('mouseleave', function () { hovering = false; });
 
-        // Keyboard: bring the focused card into view
+        // Keyboard (Tab) only: bring the focused card into view. Mouse and touch
+        // focus must not move the row, or the card slides away mid-click.
         slider.addEventListener('focusin', function (e) {
             hold(6000);
+            var keyboard = false;
+            try { keyboard = e.target.matches(':focus-visible'); } catch (err) { keyboard = false; }
+            if (!keyboard) return;
             slider.scrollLeft = 0;
             var li = e.target.closest('.slider-track > li');
-            if (li) { pos = li.offsetLeft - originals[0].offsetLeft; apply(); }
+            if (!li) return;
+            var sr = slider.getBoundingClientRect();
+            var lr = li.getBoundingClientRect();
+            if (lr.left >= sr.left && lr.right <= sr.right) return;
+            pos += lr.left - sr.left - 40;
+            apply();
         });
 
         // Drag / swipe with mouse, finger or pen
