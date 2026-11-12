@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+    <url>
+        <loc>https://ridhimafoundation.org/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="en-IN" href="https://ridhimafoundation.org/"/>
+        <xhtml:link rel="alternate" hreflang="hi-IN" href="https://ridhimafoundation.org/hi/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://ridhimafoundation.org/"/>
+        <image:image><image:loc>https://ridhimafoundation.org/assets/og-image.jpg</image:loc></image:image>
+        <image:image><image:loc>https://ridhimafoundation.org/assets/logo.png</image:loc></image:image>
+        <image:image><image:loc>https://ridhimafoundation.org/Dr.Deepika/DrDeepikaSingh.jpg</image:loc></image:image>
+        <image:image><image:loc>https://ridhimafoundation.org/Dr.Raj/DrRajKumarSingh.jpg</image:loc></image:image>
+        <image:image><image:loc>https://ridhimafoundation.org/MedicalCamp/IMG_0355.jpg</image:loc></image:image>
+    </url>
+    <url>
+        <loc>https://ridhimafoundation.org/hi/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="en-IN" href="https://ridhimafoundation.org/"/>
+        <xhtml:link rel="alternate" hreflang="hi-IN" href="https://ridhimafoundation.org/hi/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://ridhimafoundation.org/"/>
+    </url>
+</urlset>

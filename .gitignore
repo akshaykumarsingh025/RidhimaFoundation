@@ -21,3 +21,11 @@ __pycache__/
 
 # Local-only source material (bio sheets, reference docs)
 details/
+
+# Website images that must be deployed
+!assets/
+!assets/**
+!apple-touch-icon.png
+
+# Generated at build time by scripts/build-hi.js
+hi/
