@@ -160,7 +160,12 @@ function renderLd(videos) {
                 contentUrl: `https://www.youtube.com/watch?v=${v.id}`,
                 embedUrl: `https://www.youtube-nocookie.com/embed/${v.id}`,
                 inLanguage: 'hi-IN',
-                author: { '@id': 'https://ridhimafoundation.org/#deepika-singh' }
+                author: {
+                    '@type': 'Person',
+                    '@id': 'https://ridhimafoundation.org/#deepika-singh',
+                    name: 'Dr. Deepika Singh',
+                    url: 'https://ridhimafoundation.org/#founders'
+                }
             };
             if (v.seconds) o.duration = isoLen(v.seconds);
             return { '@type': 'ListItem', position: i + 1, item: o };
